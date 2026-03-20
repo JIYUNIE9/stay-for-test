@@ -303,13 +303,7 @@
           더 자세한 설명은 이메일로 받아볼 수 있습니다.
         </p>
 
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSco82IHcsKAK_nPJIisFOseLykUi5mof_JbScbdf40tMFb04g/viewform"
-          target="_blank"
-          onclick="trackFormClick()"
-        >
-          <button class="btn btn-primary">상세 결과 이메일로 받기</button>
-        </a>
+        <button class="btn btn-primary" onclick="openResultForm()">상세 결과 이메일로 받기</button>
 
         <div class="actions" style="margin-top:12px;">
           <button class="btn btn-secondary" onclick="restartQuiz()">다시 하기</button>
@@ -323,6 +317,16 @@
   </div>
 
   <script>
+    const GOOGLE_FORM_BASE_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSco82IHcsKAK_nPJIisFOseLykUi5mof_JbScbdf40tMFb04g/viewform';
+    const RESULT_ENTRY_ID = '444836726';
+
+    const typeLabelMap = {
+      overload: '과부하형',
+      selfconscious: '눈치형',
+      drained: '방전형',
+      recovery: '회복형'
+    };
+
     const questions = [
       {
         text: '카페에 도착했을 때 가장 먼저 하는 행동은 무엇인가요?',
@@ -411,9 +415,7 @@
       document.getElementById('landingCard').classList.add('hidden');
       document.getElementById('quizCard').classList.remove('hidden');
       renderQuestion();
-      trackEvent('start_quiz', {
-        page_name: 'rest_quiz_landing'
-      });
+      trackEvent('start_quiz', { page_name: 'rest_quiz_landing' });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -446,9 +448,7 @@
         alert('하나를 선택해주세요.');
         return;
       }
-      trackEvent('click_next', {
-        question_index: current + 1
-      });
+      trackEvent('click_next', { question_index: current + 1 });
 
       if (current < questions.length - 1) {
         current += 1;
@@ -461,9 +461,7 @@
     function prevQuestion() {
       if (current > 0) {
         current -= 1;
-        trackEvent('click_prev', {
-          question_index: current + 1
-        });
+        trackEvent('click_prev', { question_index: current + 1 });
         renderQuestion();
       }
     }
@@ -476,7 +474,7 @@
       });
 
       const topType = Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
-      finalType = topType;
+      finalType = typeLabelMap[topType];
       const r = results[topType];
 
       document.getElementById('quizCard').classList.add('hidden');
@@ -488,17 +486,18 @@
       document.getElementById('coffeePick').innerHTML = r.coffeeShort;
 
       trackEvent('view_result', {
-        result_type: topType,
+        result_type: finalType,
         result_title: r.title
       });
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function trackFormClick() {
-      trackEvent('click_form_cta', {
-        result_type: finalType
-      });
+    function openResultForm() {
+      if (!finalType) return;
+      const url = `${GOOGLE_FORM_BASE_URL}?usp=pp_url&entry.${RESULT_ENTRY_ID}=${encodeURIComponent(finalType)}`;
+      trackEvent('click_form_cta', { result_type: finalType });
+      window.open(url, '_blank');
     }
 
     function restartQuiz() {
@@ -508,9 +507,7 @@
       document.getElementById('resultCard').classList.add('hidden');
       document.getElementById('landingCard').classList.remove('hidden');
 
-      trackEvent('restart_quiz', {
-        page_name: 'rest_quiz_result'
-      });
+      trackEvent('restart_quiz', { page_name: 'rest_quiz_result' });
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
