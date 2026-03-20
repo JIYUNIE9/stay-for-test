@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>잠깐 쉬어갈래요? | 쉼 타입 테스트</title>
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVRS6J9F6V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CVRS6J9F6V');
+  </script>
+
   <style>
     * { box-sizing: border-box; }
     body {
@@ -28,6 +38,7 @@
     h1, h2, h3, h4 { margin: 0 0 12px; }
     .sub { color: #6d6054; margin-bottom: 18px; }
     .small { font-size: 13px; color: #6d6054; }
+
     .hero {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
@@ -70,6 +81,7 @@
       color: rgba(255,255,255,0.85);
       margin: 8px 0 14px;
     }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -92,6 +104,7 @@
       background: #ece4dc;
       color: #2f241d;
     }
+
     .pill-row {
       display: flex;
       gap: 10px;
@@ -105,7 +118,9 @@
       padding: 8px 12px;
       font-size: 13px;
     }
+
     .hidden { display: none; }
+
     .progress {
       height: 10px;
       background: #ece4dc;
@@ -119,6 +134,7 @@
       background: linear-gradient(90deg, #8c6647, #bd8b56);
       transition: width .2s ease;
     }
+
     .question { margin: 24px 0; }
     .option {
       display: block;
@@ -139,7 +155,14 @@
       border-color: #8c6647;
       background: #f7efe6;
     }
-    .actions { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
     .result-top {
       display: flex;
       align-items: center;
@@ -166,6 +189,7 @@
       font-size: 13px;
       margin-bottom: 8px;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -178,6 +202,7 @@
       background: #faf7f2;
       border: 1px solid #eadccf;
     }
+
     .email-box {
       margin-top: 22px;
       padding: 18px;
@@ -185,11 +210,13 @@
       background: #faf7f2;
       border: 1px solid #e5d8c9;
     }
+
     .footer-note {
       margin-top: 18px;
       font-size: 12px;
       color: #7a6c60;
     }
+
     @media (max-width: 760px) {
       .hero { grid-template-columns: 1fr; }
       .hero-image { min-height: 300px; }
@@ -201,6 +228,7 @@
 </head>
 <body>
   <div class="wrap">
+    <!-- 랜딩 -->
     <div class="card" id="landingCard">
       <div class="hero">
         <div class="hero-left">
@@ -228,6 +256,7 @@
       </div>
     </div>
 
+    <!-- 퀴즈 -->
     <div class="card hidden" id="quizCard">
       <div id="stepText" class="small"></div>
       <div class="progress"><div class="bar" id="bar"></div></div>
@@ -241,6 +270,7 @@
       </div>
     </div>
 
+    <!-- 결과 -->
     <div class="card hidden" id="resultCard">
       <div class="result-top">
         <div class="avatar" id="resultAvatar">☕</div>
@@ -264,10 +294,20 @@
 
       <div class="email-box">
         <h3>상세 결과 + 추천 커피 이유 받기</h3>
-        <p class="small">왜 이런 결과가 나왔는지, 왜 이 커피가 어울리는지, 오늘 바로 해볼 수 있는 쉬는 루틴 3가지를 이메일로 받아보실 수 있습니다.</p>
-        <p style="margin: 10px 0 16px;"><strong>여기까지만 봐도 내 상태가 조금 보였나요?</strong><br/>더 자세한 설명은 이메일로 받아볼 수 있습니다.</p>
+        <p class="small">
+          왜 이런 결과가 나왔는지, 왜 이 커피가 어울리는지,
+          오늘 바로 해볼 수 있는 쉬는 루틴 3가지를 이메일로 받아보실 수 있습니다.
+        </p>
+        <p style="margin: 10px 0 16px;">
+          <strong>여기까지만 봐도 내 상태가 조금 보였나요?</strong><br/>
+          더 자세한 설명은 이메일로 받아볼 수 있습니다.
+        </p>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSco82IHcsKAK_nPJIisFOseLykUi5mof_JbScbdf40tMFb04g/viewform" target="_blank">
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSco82IHcsKAK_nPJIisFOseLykUi5mof_JbScbdf40tMFb04g/viewform"
+          target="_blank"
+          onclick="trackFormClick()"
+        >
           <button class="btn btn-primary">상세 결과 이메일로 받기</button>
         </a>
 
@@ -359,11 +399,21 @@
 
     let current = 0;
     const answers = new Array(questions.length).fill(null);
+    let finalType = '';
+
+    function trackEvent(eventName, params = {}) {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, params);
+      }
+    }
 
     function startQuiz() {
       document.getElementById('landingCard').classList.add('hidden');
       document.getElementById('quizCard').classList.remove('hidden');
       renderQuestion();
+      trackEvent('start_quiz', {
+        page_name: 'rest_quiz_landing'
+      });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -381,6 +431,10 @@
         btn.textContent = opt.text;
         btn.onclick = () => {
           answers[current] = idx;
+          trackEvent('select_answer', {
+            question_index: current + 1,
+            answer_text: opt.text
+          });
           renderQuestion();
         };
         wrap.appendChild(btn);
@@ -392,6 +446,10 @@
         alert('하나를 선택해주세요.');
         return;
       }
+      trackEvent('click_next', {
+        question_index: current + 1
+      });
+
       if (current < questions.length - 1) {
         current += 1;
         renderQuestion();
@@ -403,6 +461,9 @@
     function prevQuestion() {
       if (current > 0) {
         current -= 1;
+        trackEvent('click_prev', {
+          question_index: current + 1
+        });
         renderQuestion();
       }
     }
@@ -415,6 +476,7 @@
       });
 
       const topType = Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
+      finalType = topType;
       const r = results[topType];
 
       document.getElementById('quizCard').classList.add('hidden');
@@ -424,14 +486,32 @@
       document.getElementById('resultSummary').textContent = r.summary;
       document.getElementById('resultDesc').textContent = r.desc;
       document.getElementById('coffeePick').innerHTML = r.coffeeShort;
+
+      trackEvent('view_result', {
+        result_type: topType,
+        result_title: r.title
+      });
+
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function trackFormClick() {
+      trackEvent('click_form_cta', {
+        result_type: finalType
+      });
     }
 
     function restartQuiz() {
       current = 0;
+      finalType = '';
       for (let i = 0; i < answers.length; i++) answers[i] = null;
       document.getElementById('resultCard').classList.add('hidden');
       document.getElementById('landingCard').classList.remove('hidden');
+
+      trackEvent('restart_quiz', {
+        page_name: 'rest_quiz_result'
+      });
+
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
