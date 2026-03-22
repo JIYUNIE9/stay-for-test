@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>오늘의 한 잔을 고르기 전에 | STAY FOR</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
- 
+
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVRS6J9F6V"></script>
   <script>
@@ -14,28 +14,27 @@
     gtag('js', new Date());
     gtag('config', 'G-CVRS6J9F6V');
   </script>
- 
+
   <style>
     :root {
-      --cream:   #f7f1e8;
+      --cream: #f7f1e8;
       --parchment: #ede5d5;
       --warm-white: #fdfaf5;
       --espresso: #1c120a;
-      --bark:    #4a2e18;
+      --bark: #4a2e18;
       --caramel: #9b6033;
-      --honey:   #c8883a;
-      --gold:    #d4a85a;
-      --mist:    #8a7868;
-      --border:  rgba(74,46,24,0.12);
- 
+      --honey: #c8883a;
+      --gold: #d4a85a;
+      --mist: #8a7868;
+      --border: rgba(74,46,24,0.12);
+
       --serif: 'Cormorant Garamond', Georgia, serif;
-      --sans:  'Noto Sans KR', sans-serif;
+      --sans: 'Noto Sans KR', sans-serif;
     }
- 
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
     html { scroll-behavior: smooth; }
- 
+
     body {
       font-family: var(--sans);
       background: var(--cream);
@@ -44,9 +43,9 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
- 
+
     .hidden { display: none !important; }
- 
+
     body::before {
       content: '';
       position: fixed;
@@ -56,19 +55,19 @@
       z-index: 1000;
       opacity: .5;
     }
- 
+
     .page {
       max-width: 860px;
       margin: 0 auto;
       padding: 40px 20px 80px;
     }
- 
+
     .site-header {
       text-align: center;
       margin-bottom: 48px;
       animation: fadeDown .7s ease both;
     }
- 
+
     .brand-wordmark {
       font-family: var(--serif);
       font-size: 13px;
@@ -78,26 +77,26 @@
       display: block;
       margin-bottom: 6px;
     }
- 
+
     .header-rule {
       width: 40px;
       height: 1px;
       background: var(--gold);
       margin: 0 auto;
     }
- 
+
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-12px); }
       to   { opacity: 1; transform: translateY(0); }
     }
- 
-    #landingCard { animation: fadeUp .7s .1s ease both; }
- 
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
- 
+
+    #landingCard { animation: fadeUp .7s .1s ease both; }
+
     .hero {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
@@ -107,7 +106,7 @@
       box-shadow: 0 20px 60px rgba(28,18,10,0.14);
       min-height: 560px;
     }
- 
+
     .hero-left {
       background: var(--espresso);
       padding: 52px 44px;
@@ -118,7 +117,7 @@
       position: relative;
       overflow: hidden;
     }
- 
+
     .hero-left::before {
       content: '';
       position: absolute;
@@ -130,7 +129,7 @@
       right: -80px;
       pointer-events: none;
     }
- 
+
     .hero-left::after {
       content: '';
       position: absolute;
@@ -142,7 +141,7 @@
       left: -50px;
       pointer-events: none;
     }
- 
+
     .hero-kicker {
       font-size: 11px;
       letter-spacing: 4px;
@@ -150,7 +149,7 @@
       color: var(--gold);
       font-weight: 500;
     }
- 
+
     .hero-title {
       font-family: var(--serif);
       font-size: 38px;
@@ -158,46 +157,47 @@
       color: #fff;
       font-weight: 400;
     }
- 
+
     .hero-title em {
       font-style: italic;
       color: var(--gold);
     }
- 
+
     .hero-desc {
       font-size: 14px;
       color: rgba(255,255,255,0.58);
       line-height: 1.85;
       font-weight: 300;
     }
- 
+
     .hero-desc strong {
       color: rgba(255,255,255,0.85);
       font-weight: 500;
     }
- 
+
     .offer-pills {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
- 
+
     .offer-pill {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 10px;
       font-size: 13px;
       color: rgba(255,255,255,0.72);
     }
- 
+
     .offer-pill-dot {
       width: 5px;
       height: 5px;
       border-radius: 50%;
       background: var(--gold);
       flex-shrink: 0;
+      margin-top: 8px;
     }
- 
+
     .btn-start {
       display: inline-flex;
       align-items: center;
@@ -218,31 +218,31 @@
       position: relative;
       z-index: 1;
     }
- 
+
     .btn-start:hover {
       background: #e0b668;
       transform: translateY(-2px);
       box-shadow: 0 10px 32px rgba(212,168,90,0.4);
     }
- 
+
     .hero-footnote {
       font-size: 11px;
       color: rgba(255,255,255,0.3);
       letter-spacing: .5px;
     }
- 
+
     .hero-right {
       background: var(--bark) url('./images/stayfor-hero.jpg') center/cover no-repeat;
       position: relative;
     }
- 
+
     .hero-right::after {
       content: '';
       position: absolute;
       inset: 0;
       background: linear-gradient(90deg, rgba(28,18,10,0.35) 0%, transparent 50%);
     }
- 
+
     #quizCard {
       background: var(--warm-white);
       border-radius: 24px;
@@ -250,14 +250,14 @@
       box-shadow: 0 12px 40px rgba(28,18,10,0.08);
       border: 1px solid var(--border);
     }
- 
+
     .quiz-meta {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 8px;
     }
- 
+
     .quiz-step-label {
       font-size: 11px;
       letter-spacing: 3px;
@@ -265,12 +265,12 @@
       color: var(--caramel);
       font-weight: 700;
     }
- 
+
     .quiz-count {
       font-size: 12px;
       color: var(--mist);
     }
- 
+
     .progress-bar-track {
       height: 2px;
       background: var(--parchment);
@@ -278,14 +278,14 @@
       margin-bottom: 36px;
       overflow: hidden;
     }
- 
+
     .progress-bar-fill {
       height: 100%;
       background: linear-gradient(90deg, var(--caramel), var(--honey));
       border-radius: 99px;
       transition: width .35s ease;
     }
- 
+
     .q-text {
       font-family: var(--serif);
       font-size: 26px;
@@ -294,13 +294,13 @@
       font-weight: 400;
       margin-bottom: 28px;
     }
- 
+
     .options-wrap {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
- 
+
     .opt {
       display: flex;
       align-items: flex-start;
@@ -318,7 +318,7 @@
       width: 100%;
       line-height: 1.6;
     }
- 
+
     .opt-marker {
       width: 20px;
       height: 20px;
@@ -330,26 +330,26 @@
       display: grid;
       place-items: center;
     }
- 
+
     .opt:hover {
       border-color: var(--honey);
       background: #fdf4ea;
     }
- 
+
     .opt:hover .opt-marker {
       border-color: var(--honey);
     }
- 
+
     .opt.selected {
       border-color: var(--caramel);
       background: #fdf0e2;
     }
- 
+
     .opt.selected .opt-marker {
       background: var(--caramel);
       border-color: var(--caramel);
     }
- 
+
     .opt.selected .opt-marker::after {
       content: '';
       width: 6px;
@@ -357,13 +357,13 @@
       border-radius: 50%;
       background: #fff;
     }
- 
+
     .quiz-nav {
       display: flex;
       gap: 10px;
       margin-top: 30px;
     }
- 
+
     .btn-prev {
       background: var(--parchment);
       color: var(--bark);
@@ -376,9 +376,9 @@
       cursor: pointer;
       transition: opacity .15s;
     }
- 
+
     .btn-prev:hover { opacity: .75; }
- 
+
     .btn-next {
       flex: 1;
       background: var(--espresso);
@@ -393,26 +393,26 @@
       transition: opacity .15s, transform .15s;
       letter-spacing: .5px;
     }
- 
+
     .btn-next:hover {
       opacity: .88;
       transform: translateY(-1px);
     }
- 
+
     #resultCard {
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 12px 40px rgba(28,18,10,0.1);
       border: 1px solid var(--border);
     }
- 
+
     .res-hero {
       background: var(--espresso);
       padding: 48px 44px 40px;
       position: relative;
       overflow: hidden;
     }
- 
+
     .res-hero::before {
       content: '';
       position: absolute;
@@ -423,7 +423,7 @@
       bottom: -150px;
       right: -80px;
     }
- 
+
     .res-eyebrow {
       font-size: 11px;
       letter-spacing: 4px;
@@ -432,19 +432,7 @@
       margin-bottom: 20px;
       font-weight: 700;
     }
- 
-    .res-type-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 22px;
-    }
- 
-    .res-drink-icon {
-      font-size: 60px;
-      line-height: 1;
-      flex-shrink: 0;
-    }
- 
+
     .res-type-name {
       font-family: var(--serif);
       font-size: 36px;
@@ -452,7 +440,7 @@
       font-weight: 400;
       line-height: 1.15;
     }
- 
+
     .res-drink-name {
       font-size: 14px;
       color: var(--gold);
@@ -460,7 +448,7 @@
       letter-spacing: 1px;
       font-weight: 500;
     }
- 
+
     .res-tagline {
       margin-top: 22px;
       font-family: var(--serif);
@@ -472,20 +460,21 @@
       line-height: 1.7;
       position: relative;
       z-index: 1;
+      white-space: pre-line;
     }
- 
+
     .res-body {
       background: var(--warm-white);
       padding: 36px 44px;
     }
- 
+
     .teaser-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
       margin-bottom: 26px;
     }
- 
+
     .teaser-box {
       background: var(--cream);
       border: 1px solid var(--border);
@@ -494,7 +483,7 @@
       position: relative;
       overflow: hidden;
     }
- 
+
     .teaser-box-title {
       font-size: 12px;
       letter-spacing: 1.5px;
@@ -503,19 +492,19 @@
       font-weight: 700;
       margin-bottom: 10px;
     }
- 
+
     .teaser-box-text {
       font-size: 14px;
       color: var(--mist);
       line-height: 1.75;
     }
- 
+
     .teaser-blur {
       filter: blur(5px);
       user-select: none;
       pointer-events: none;
     }
- 
+
     .teaser-lock-overlay {
       position: absolute;
       inset: 0;
@@ -525,7 +514,7 @@
       justify-content: center;
       padding-bottom: 14px;
     }
- 
+
     .lock-tag {
       background: var(--espresso);
       color: var(--gold);
@@ -536,14 +525,14 @@
       border-radius: 99px;
       padding: 6px 14px;
     }
- 
+
     .res-divider {
       width: 40px;
       height: 1px;
       background: var(--gold);
       margin: 0 auto 26px;
     }
- 
+
     .cta-block {
       background: var(--espresso);
       border-radius: 20px;
@@ -551,7 +540,7 @@
       position: relative;
       overflow: hidden;
     }
- 
+
     .cta-block::before {
       content: '';
       position: absolute;
@@ -562,7 +551,7 @@
       bottom: -80px;
       right: -60px;
     }
- 
+
     .cta-eyebrow {
       font-size: 11px;
       letter-spacing: 3px;
@@ -571,7 +560,7 @@
       margin-bottom: 10px;
       font-weight: 700;
     }
- 
+
     .cta-headline {
       font-family: var(--serif);
       font-size: 26px;
@@ -580,26 +569,33 @@
       margin-bottom: 8px;
       font-weight: 400;
     }
- 
+
     .cta-headline em {
       font-style: italic;
       color: var(--gold);
     }
- 
+
     .cta-sub {
       font-size: 13px;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 24px;
-      line-height: 1.75;
+      color: rgba(255,255,255,0.58);
+      margin-bottom: 20px;
+      line-height: 1.85;
     }
- 
+
+    .cta-urgency {
+      font-size: 12px;
+      color: rgba(212,168,90,0.9);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
     .benefit-row {
       display: flex;
       flex-direction: column;
       gap: 8px;
       margin-bottom: 24px;
     }
- 
+
     .benefit-item {
       display: flex;
       align-items: flex-start;
@@ -607,69 +603,50 @@
       font-size: 13px;
       color: rgba(255,255,255,0.75);
     }
- 
+
     .benefit-dot {
       color: var(--gold);
       flex-shrink: 0;
       font-size: 11px;
       margin-top: 3px;
     }
- 
-    .email-row {
-      display: flex;
-      gap: 8px;
-      position: relative;
-      z-index: 1;
-    }
- 
-    .email-field {
-      flex: 1;
-      background: rgba(255,255,255,0.09);
-      border: 1.5px solid rgba(255,255,255,0.14);
-      border-radius: 12px;
-      padding: 15px 18px;
-      color: #fff;
-      font-size: 14px;
-      font-family: var(--sans);
-      outline: none;
-      transition: border-color .2s;
-    }
- 
-    .email-field::placeholder { color: rgba(255,255,255,0.3); }
-    .email-field:focus { border-color: var(--gold); }
- 
-    .btn-email-submit {
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: var(--gold);
       color: var(--espresso);
       border: none;
       border-radius: 12px;
-      padding: 15px 22px;
+      padding: 16px 22px;
       font-size: 14px;
       font-weight: 700;
       font-family: var(--sans);
       cursor: pointer;
-      white-space: nowrap;
       transition: background .2s, transform .15s;
       box-shadow: 0 4px 16px rgba(212,168,90,0.35);
+      position: relative;
+      z-index: 1;
     }
- 
-    .btn-email-submit:hover {
+
+    .cta-btn:hover {
       background: #e0b668;
       transform: translateY(-1px);
     }
- 
-    .email-notice {
+
+    .cta-note {
       font-size: 11px;
       color: rgba(255,255,255,0.28);
       margin-top: 10px;
       letter-spacing: .3px;
     }
- 
+
     .restart-wrap {
       text-align: center;
       margin-top: 20px;
     }
- 
+
     .btn-restart {
       background: none;
       border: none;
@@ -680,42 +657,7 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
- 
-    #doneCard {
-      background: var(--warm-white);
-      border-radius: 24px;
-      padding: 72px 40px;
-      text-align: center;
-      box-shadow: 0 12px 40px rgba(28,18,10,0.08);
-      border: 1px solid var(--border);
-      animation: fadeUp .5s ease both;
-    }
- 
-    .done-cup { font-size: 64px; margin-bottom: 22px; line-height: 1; }
- 
-    .done-heading {
-      font-family: var(--serif);
-      font-size: 30px;
-      color: var(--espresso);
-      font-weight: 400;
-      margin-bottom: 14px;
-    }
- 
-    .done-text {
-      font-size: 15px;
-      color: var(--mist);
-      max-width: 360px;
-      margin: 0 auto;
-      line-height: 1.85;
-    }
- 
-    .done-divider {
-      width: 30px;
-      height: 1px;
-      background: var(--gold);
-      margin: 22px auto;
-    }
- 
+
     @media (max-width: 680px) {
       .hero {
         grid-template-columns: 1fr;
@@ -727,38 +669,36 @@
       #quizCard, .res-body { padding: 28px 22px; }
       .res-hero { padding: 36px 28px 30px; }
       .teaser-grid { grid-template-columns: 1fr; }
-      .email-row { flex-direction: column; }
-      .btn-email-submit { width: 100%; }
-      .cta-block { padding: 28px 22px; }
       .q-text { font-size: 21px; }
       .res-type-name { font-size: 28px; }
+      .cta-headline { font-size: 23px; }
     }
   </style>
 </head>
 <body>
 <div class="page">
- 
+
   <header class="site-header">
     <span class="brand-wordmark">Stay For</span>
     <div class="header-rule"></div>
   </header>
- 
+
   <div id="landingCard">
     <div class="hero">
       <div class="hero-left">
         <div class="hero-kicker">1분 쉼 타입 테스트</div>
- 
+
         <h1 class="hero-title">
           오늘의 한 잔,<br>
           <em>아직 고르지 않으셨나요?</em>
         </h1>
- 
+
         <p class="hero-desc">
           커피는 기분으로 고르는 게 아닙니다.<br>
           <strong>지금 내 상태</strong>를 먼저 알면,<br>
           오늘 내게 진짜 필요한 한 잔이 달라집니다.
         </p>
- 
+
         <div class="offer-pills">
           <div class="offer-pill">
             <div class="offer-pill-dot"></div>
@@ -773,18 +713,18 @@
             <span>오늘 카페에서 바로 쓸 수 있는 쉬는 루틴</span>
           </div>
         </div>
- 
+
         <button class="btn-start" onclick="startQuiz()">
           오늘의 한 잔 찾아보기 &nbsp;→
         </button>
- 
+
         <p class="hero-footnote">약 1분 소요 · 광고성 메일 없음 · 무료</p>
       </div>
- 
+
       <div class="hero-right"></div>
     </div>
   </div>
- 
+
   <div id="quizCard" class="hidden">
     <div class="quiz-meta">
       <div class="quiz-step-label" id="stepLabel">Question 1</div>
@@ -793,29 +733,24 @@
     <div class="progress-bar-track">
       <div class="progress-bar-fill" id="progressFill" style="width:20%"></div>
     </div>
- 
+
     <div class="q-text" id="questionText"></div>
     <div class="options-wrap" id="optionsWrap"></div>
- 
+
     <div class="quiz-nav">
       <button class="btn-prev" onclick="prevQ()">← 이전</button>
       <button class="btn-next" onclick="nextQ()">다음 →</button>
     </div>
   </div>
- 
+
   <div id="resultCard" class="hidden">
     <div class="res-hero">
       <div class="res-eyebrow">나의 쉼 타입 & 오늘의 추천 음료</div>
-      <div class="res-type-row">
-        <div class="res-drink-icon" id="resIcon">☕</div>
-        <div>
-          <div class="res-type-name" id="resTypeName"></div>
-          <div class="res-drink-name" id="resDrinkName"></div>
-        </div>
-      </div>
+      <div class="res-type-name" id="resTypeName"></div>
+      <div class="res-drink-name" id="resDrinkName"></div>
       <div class="res-tagline" id="resTagline"></div>
     </div>
- 
+
     <div class="res-body">
       <div class="teaser-grid">
         <div class="teaser-box">
@@ -829,7 +764,7 @@
             <div class="lock-tag">추천 이유 확인하기</div>
           </div>
         </div>
- 
+
         <div class="teaser-box">
           <div class="teaser-box-title">오늘의 카페 루틴</div>
           <div class="teaser-box-text teaser-blur">
@@ -842,19 +777,22 @@
           </div>
         </div>
       </div>
- 
+
       <div class="res-divider"></div>
- 
+
       <div class="cta-block">
         <div class="cta-eyebrow">Full Result</div>
         <h2 class="cta-headline">
           왜 이 음료인지, 오늘<br>
-          <em>어떻게 쉬면 되는지</em> 받아보세요.
+          <em>어떻게 쉬면 되는지</em> 확인해보세요.
         </h2>
         <p class="cta-sub">
           결과 안내 메일 1회로 전체 내용을 보내드립니다.
         </p>
- 
+        <p class="cta-urgency">
+          지금 확인하지 않으면 추천 이유와 루틴은 다시 보이지 않습니다.
+        </p>
+
         <div class="benefit-row">
           <div class="benefit-item">
             <span class="benefit-dot">◆</span>
@@ -869,42 +807,22 @@
             <span>지금 왜 덜 쉬어지는지 상태 해설</span>
           </div>
         </div>
- 
-        <div class="email-row">
-          <input
-            type="email"
-            class="email-field"
-            id="emailInput"
-            placeholder="이메일 주소 입력"
-          />
-          <button class="btn-email-submit" onclick="submitEmail()">결과 받기 →</button>
-        </div>
-        <div class="email-notice">광고성 뉴스레터 없음 · 결과 안내 1회만 발송됩니다</div>
+
+        <button class="cta-btn" onclick="goToForm()">추천 이유까지 확인하기 →</button>
+        <div class="cta-note">광고성 뉴스레터 없음 · 결과 안내 1회만 발송됩니다</div>
       </div>
- 
+
       <div class="restart-wrap">
         <button class="btn-restart" onclick="restartQuiz()">처음부터 다시 하기</button>
       </div>
     </div>
   </div>
- 
-  <div id="doneCard" class="hidden">
-    <div class="done-cup">☕</div>
-    <div class="done-heading">잠시 후 도착합니다</div>
-    <div class="done-divider"></div>
-    <p class="done-text">
-      입력하신 메일로 오늘의 추천 음료와<br>
-      쉬는 루틴을 보내드릴게요.<br><br>
-      메일이 오지 않는다면 스팸함을 확인해보세요.
-    </p>
-  </div>
- 
 </div>
- 
+
 <script>
   const GOOGLE_FORM_BASE_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSco82IHcsKAK_nPJIisFOseLykUi5mof_JbScbdf40tMFb04g/viewform';
   const RESULT_ENTRY_ID = '444836726';
- 
+
   const questions = [
     {
       text: '카페에 도착했을 때 가장 먼저 하는 행동은?',
@@ -947,46 +865,42 @@
       ]
     }
   ];
- 
+
   const results = {
     overload: {
-      icon: '🫖',
       typeName: '과부하형',
       drinkName: 'STAY FOR — 캐모마일 허브 라떼',
       tagline: '몸은 멈췄지만 마음은 아직 달리고 있는 당신에게.\n자극을 끄고 싶을 때 필요한 건 카페인이 아니라 온도입니다.',
       label: '과부하형'
     },
     selfconscious: {
-      icon: '🥛',
       typeName: '눈치형',
       drinkName: 'STAY FOR — 바닐라 오트 밀크',
       tagline: '공간에 있어도 편하지 않은 당신에게.\n부드럽고 익숙한 단맛이 먼저 긴장을 풀어줄 거예요.',
       label: '눈치형'
     },
     drained: {
-      icon: '🍦',
       typeName: '방전형',
       drinkName: 'STAY FOR — 흑임자 크림 라떼',
       tagline: '에너지가 바닥난 상태, 지금은 자극보다 보충이 필요합니다.\n고소하고 묵직한 한 잔이 오늘을 버티게 해줄 거예요.',
       label: '방전형'
     },
     recovery: {
-      icon: '☕',
       typeName: '회복형',
       drinkName: 'STAY FOR — 싱글오리진 핸드드립',
       tagline: '쉬는 감각을 조금씩 되찾고 있는 당신에게.\n천천히 내린 한 잔, 그 시간 자체가 오늘의 루틴입니다.',
       label: '회복형'
     }
   };
- 
+
   let current = 0;
   const answers = new Array(questions.length).fill(null);
   let finalLabel = '';
- 
+
   function trackEvent(name, params = {}) {
     if (typeof gtag === 'function') gtag('event', name, params);
   }
- 
+
   function startQuiz() {
     document.getElementById('landingCard').classList.add('hidden');
     document.getElementById('quizCard').classList.remove('hidden');
@@ -994,32 +908,32 @@
     trackEvent('start_quiz');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
- 
+
   function renderQuestion() {
     const q = questions[current];
     const pct = ((current + 1) / questions.length) * 100;
- 
+
     document.getElementById('questionText').textContent = q.text;
     document.getElementById('stepLabel').textContent = `Question ${current + 1}`;
     document.getElementById('stepCount').textContent = `${current + 1} / ${questions.length}`;
     document.getElementById('progressFill').style.width = pct + '%';
- 
+
     const wrap = document.getElementById('optionsWrap');
     wrap.innerHTML = '';
- 
+
     q.options.forEach((opt, idx) => {
       const btn = document.createElement('button');
       btn.className = 'opt' + (answers[current] === idx ? ' selected' : '');
- 
+
       const marker = document.createElement('span');
       marker.className = 'opt-marker';
- 
+
       const text = document.createElement('span');
       text.textContent = opt.text;
- 
+
       btn.appendChild(marker);
       btn.appendChild(text);
- 
+
       btn.onclick = () => {
         answers[current] = idx;
         trackEvent('select_answer', { q: current + 1, answer: opt.text });
@@ -1028,9 +942,12 @@
       wrap.appendChild(btn);
     });
   }
- 
+
   function nextQ() {
-    if (answers[current] === null) { alert('하나를 선택해주세요.'); return; }
+    if (answers[current] === null) {
+      alert('하나를 선택해주세요.');
+      return;
+    }
     if (current < questions.length - 1) {
       current++;
       renderQuestion();
@@ -1039,62 +956,60 @@
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
- 
+
   function prevQ() {
-    if (current > 0) { current--; renderQuestion(); }
+    if (current > 0) {
+      current--;
+      renderQuestion();
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
- 
+
   function showResult() {
     const score = { overload: 0, selfconscious: 0, drained: 0, recovery: 0 };
+
     questions.forEach((q, qi) => {
       const sel = q.options[answers[qi]];
       Object.entries(sel.scores).forEach(([k, v]) => score[k] += v);
     });
- 
+
     const topKey = Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
     const r = results[topKey];
     finalLabel = r.label;
- 
+
     document.getElementById('quizCard').classList.add('hidden');
     document.getElementById('resultCard').classList.remove('hidden');
- 
-    document.getElementById('resIcon').textContent      = r.icon;
-    document.getElementById('resTypeName').textContent  = r.typeName;
+
+    document.getElementById('resTypeName').textContent = r.typeName;
     document.getElementById('resDrinkName').textContent = r.drinkName;
-    document.getElementById('resTagline').textContent   = r.tagline;
- 
+    document.getElementById('resTagline').textContent = r.tagline;
+
     trackEvent('view_result', { result_type: finalLabel });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
- 
-  function submitEmail() {
-    const email = document.getElementById('emailInput').value.trim();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      alert('올바른 이메일 주소를 입력해주세요.');
+
+  function goToForm() {
+    if (!finalLabel) {
+      alert('결과를 먼저 확인해주세요.');
       return;
     }
- 
-    trackEvent('submit_email', {
-      result_type: finalLabel,
-      email_domain: email.split('@')[1]
-    });
- 
-    const url = `${GOOGLE_FORM_BASE_URL}?usp=pp_url&entry.${RESULT_ENTRY_ID}=${encodeURIComponent(finalLabel)}`;
-    window.open(url, '_blank');
- 
-    document.getElementById('resultCard').classList.add('hidden');
-    document.getElementById('doneCard').classList.remove('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    trackEvent('click_result_cta', { result_type: finalLabel });
+
+    const url =
+      `${GOOGLE_FORM_BASE_URL}?usp=pp_url&entry.${RESULT_ENTRY_ID}=${encodeURIComponent(finalLabel)}`;
+
+    window.location.href = url;
   }
- 
+
   function restartQuiz() {
     current = 0;
     finalLabel = '';
     for (let i = 0; i < answers.length; i++) answers[i] = null;
+
     document.getElementById('resultCard').classList.add('hidden');
-    document.getElementById('doneCard').classList.add('hidden');
     document.getElementById('landingCard').classList.remove('hidden');
+
     trackEvent('restart_quiz');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
