@@ -929,8 +929,20 @@
   const answers = new Array(questions.length).fill(null);
   let finalLabel = '';
 
-  function trackEvent(name, params = {}) {
-    if (typeof gtag === 'function') gtag('event', name, params);
+  function trackEvent(name, params = {}, callback = null) {
+    if (typeof gtag !== 'function') {
+      if (typeof callback === 'function') callback();
+      return;
+    }
+
+    const eventParams = { ...params };
+
+    if (typeof callback === 'function') {
+      eventParams.event_callback = callback;
+      eventParams.event_timeout = 2000;
+    }
+
+    gtag('event', name, eventParams);
   }
 
   function startQuiz() {
@@ -968,7 +980,10 @@
 
       btn.onclick = () => {
         answers[current] = idx;
-        trackEvent('select_answer', { q: current + 1, answer: opt.text });
+        trackEvent('select_answer', {
+          q: current + 1,
+          answer: opt.text
+        });
         renderQuestion();
       };
 
@@ -1020,7 +1035,10 @@
     document.getElementById('resDrinkName').textContent = r.drinkName;
     document.getElementById('resTagline').textContent = r.tagline;
 
-    trackEvent('view_result', { result_type: finalLabel });
+    trackEvent('view_result', {
+      result_type: finalLabel
+    });
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -1030,10 +1048,27 @@
       return;
     }
 
-    trackEvent('click_result_cta', { result_type: finalLabel });
-
     const url = `${GOOGLE_FORM_BASE_URL}?usp=pp_url&entry.${RESULT_ENTRY_ID}=${encodeURIComponent(finalLabel)}`;
-    window.location.href = url;
+
+    let moved = false;
+
+    const moveToForm = () => {
+      if (moved) return;
+      moved = true;
+      window.location.href = url;
+    };
+
+    trackEvent(
+      'click_result_cta',
+      {
+        result_type: finalLabel,
+        cta_text: '결과 전체 받아보기',
+        destination: 'google_form'
+      },
+      moveToForm
+    );
+
+    setTimeout(moveToForm, 300);
   }
 
   function restartQuiz() {
