@@ -156,7 +156,7 @@
 
     .hero-title {
       font-family: var(--serif);
-      font-size: 38px;
+      font-size: 40px;
       line-height: 1.25;
       color: #fff;
       font-weight: 400;
@@ -168,15 +168,31 @@
     }
 
     .hero-desc {
-      font-size: 14px;
-      color: rgba(255,255,255,0.58);
+      font-size: 15px;
+      color: rgba(255,255,255,0.62);
       line-height: 1.85;
       font-weight: 300;
     }
 
     .hero-desc strong {
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.9);
       font-weight: 500;
+    }
+
+    .hero-benefit-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 18px 18px;
+    }
+
+    .hero-benefit-title {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-weight: 700;
     }
 
     .offer-pills {
@@ -190,7 +206,7 @@
       align-items: flex-start;
       gap: 10px;
       font-size: 13px;
-      color: rgba(255,255,255,0.72);
+      color: rgba(255,255,255,0.78);
     }
 
     .offer-pill-dot {
@@ -202,6 +218,20 @@
       margin-top: 8px;
     }
 
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .proof-chip {
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+      border-radius: 99px;
+      padding: 7px 12px;
+    }
+
     .btn-start {
       display: inline-flex;
       align-items: center;
@@ -210,17 +240,18 @@
       background: var(--gold);
       color: var(--espresso);
       font-family: var(--sans);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       border: none;
       border-radius: 12px;
-      padding: 17px 26px;
+      padding: 18px 28px;
       cursor: pointer;
       transition: background .2s, transform .15s, box-shadow .2s;
       box-shadow: 0 6px 24px rgba(212,168,90,0.3);
       letter-spacing: .3px;
       position: relative;
       z-index: 1;
+      width: fit-content;
     }
 
     .btn-start:hover {
@@ -230,9 +261,10 @@
     }
 
     .hero-footnote {
-      font-size: 11px;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: .5px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.42);
+      letter-spacing: .3px;
+      line-height: 1.7;
     }
 
     .hero-right {
@@ -517,7 +549,7 @@
       padding: 20px;
       position: relative;
       overflow: hidden;
-      min-height: 180px;
+      min-height: 186px;
     }
 
     .teaser-box-title {
@@ -601,10 +633,10 @@
 
     .cta-headline {
       font-family: var(--serif);
-      font-size: 26px;
+      font-size: 28px;
       color: #fff;
       line-height: 1.4;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       font-weight: 400;
       position: relative;
       z-index: 1;
@@ -616,28 +648,53 @@
     }
 
     .cta-sub {
-      font-size: 13px;
-      color: rgba(255,255,255,0.58);
-      margin-bottom: 20px;
-      line-height: 1.85;
+      font-size: 14px;
+      color: rgba(255,255,255,0.66);
+      margin-bottom: 16px;
+      line-height: 1.9;
       position: relative;
       z-index: 1;
     }
 
     .cta-urgency {
-      font-size: 12px;
-      color: rgba(212,168,90,0.9);
-      margin-bottom: 20px;
-      line-height: 1.8;
+      font-size: 13px;
+      color: rgba(212,168,90,0.95);
+      margin-bottom: 18px;
+      line-height: 1.9;
       position: relative;
       z-index: 1;
+      font-weight: 500;
+    }
+
+    .cta-proof-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 14px 14px;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-proof-title {
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .cta-proof-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.8;
     }
 
     .benefit-row {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
       position: relative;
       z-index: 1;
     }
@@ -647,7 +704,7 @@
       align-items: flex-start;
       gap: 10px;
       font-size: 13px;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255,255,255,0.78);
     }
 
     .benefit-dot {
@@ -655,6 +712,23 @@
       flex-shrink: 0;
       font-size: 11px;
       margin-top: 3px;
+    }
+
+    .micro-copy {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .micro-chip {
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.66);
+      font-size: 11px;
+      border-radius: 99px;
+      padding: 7px 10px;
     }
 
     .lead-form {
@@ -671,7 +745,7 @@
 
     .lead-label {
       font-size: 12px;
-      color: rgba(255,255,255,0.78);
+      color: rgba(255,255,255,0.82);
       font-weight: 500;
     }
 
@@ -693,7 +767,7 @@
 
     .lead-helper {
       font-size: 11px;
-      color: rgba(255,255,255,0.42);
+      color: rgba(255,255,255,0.48);
       line-height: 1.6;
     }
 
@@ -805,7 +879,7 @@
       .teaser-grid { grid-template-columns: 1fr; }
       .q-text { font-size: 21px; }
       .res-type-name { font-size: 28px; }
-      .cta-headline { font-size: 23px; }
+      .cta-headline { font-size: 24px; }
     }
   </style>
 </head>
@@ -817,7 +891,7 @@
     <div class="header-rule"></div>
   </header>
 
-  <!-- 첫 페이지 -->
+  <!-- 첫 화면 -->
   <div id="landingCard">
     <div class="hero">
       <div class="hero-left">
@@ -825,35 +899,48 @@
 
         <h1 class="hero-title">
           오늘의 한 잔,<br>
-          <em>아직 고르지 않으셨나요?</em>
+          <em>지금 내 상태에 맞게</em><br>
+          골라보세요.
         </h1>
 
         <p class="hero-desc">
-          커피는 기분으로 고르는 게 아닙니다.<br>
-          <strong>지금 내 상태</strong>를 먼저 알면,<br>
-          오늘 내게 진짜 필요한 한 잔이 달라집니다.
+          단순히 커피 취향을 고르는 테스트가 아닙니다.<br>
+          <strong>지금 왜 잘 쉬어지지 않는지</strong>를 보고,<br>
+          오늘 내게 맞는 한 잔과 쉬는 루틴까지 확인할 수 있습니다.
         </p>
 
-        <div class="offer-pills">
-          <div class="offer-pill">
-            <div class="offer-pill-dot"></div>
-            <span>지금 내 쉼 상태 타입 진단</span>
-          </div>
-          <div class="offer-pill">
-            <div class="offer-pill-dot"></div>
-            <span>STAY FOR 시그니처 음료 추천</span>
-          </div>
-          <div class="offer-pill">
-            <div class="offer-pill-dot"></div>
-            <span>추천 이유 + 카페 루틴 + 상태 해설까지 이메일 제공</span>
+        <div class="hero-benefit-box">
+          <div class="hero-benefit-title">테스트 후 바로 알 수 있는 것</div>
+          <div class="offer-pills">
+            <div class="offer-pill">
+              <div class="offer-pill-dot"></div>
+              <span>내 현재 쉼 상태 유형</span>
+            </div>
+            <div class="offer-pill">
+              <div class="offer-pill-dot"></div>
+              <span>STAY FOR 추천 음료 1잔</span>
+            </div>
+            <div class="offer-pill">
+              <div class="offer-pill-dot"></div>
+              <span>상세 결과 메일: 추천 이유 + 카페 루틴 + 피하면 좋은 행동</span>
+            </div>
           </div>
         </div>
 
-        <button class="btn-start" onclick="startQuiz()">
-          오늘의 한 잔 찾아보기 →
+        <div class="hero-proof">
+          <span class="proof-chip">약 1분 소요</span>
+          <span class="proof-chip">광고성 메일 없음</span>
+          <span class="proof-chip">결과 메일 1회 발송</span>
+        </div>
+
+        <button class="btn-start" type="button" onclick="startQuiz()">
+          1분만에 내 쉼 타입 확인하기 →
         </button>
 
-        <p class="hero-footnote">약 1분 소요 · 무료 · 결과 이메일 1회 발송</p>
+        <p class="hero-footnote">
+          결과 페이지에서 유형과 추천 음료는 바로 확인할 수 있으며,<br>
+          상세 해설은 이메일로 받아볼 수 있습니다.
+        </p>
       </div>
 
       <div class="hero-right"></div>
@@ -880,7 +967,7 @@
     </div>
   </div>
 
-  <!-- 결과 페이지 -->
+  <!-- 결과 -->
   <div id="resultCard" class="hidden">
     <div class="res-hero">
       <div class="res-eyebrow">YOUR RESULT</div>
@@ -918,17 +1005,24 @@
       <div class="cta-block">
         <div class="cta-eyebrow">FULL RESULT</div>
         <h2 class="cta-headline">
-          상세 결과 전체를<br>
-          <em>이메일로 받아보세요.</em>
+          지금 결과를 끝까지 보려면,<br>
+          <em>상세 결과를 이메일로 받아보세요.</em>
         </h2>
 
         <p class="cta-sub">
-          결과 유형만 보는 것으로 끝내지 않고, 왜 이 음료가 맞는지와 오늘 바로 적용할 수 있는 카페 루틴까지 전달합니다.
+          화면에서는 결과 일부만 공개됩니다. 이메일을 입력하면 지금 내 상태에 맞는 추천 이유와 카페 루틴 전체를 바로 보내드립니다.
         </p>
 
         <p class="cta-urgency">
-          화면에서는 일부만 공개됩니다. 상세 해설과 루틴 전체는 이메일에서 확인할 수 있습니다.
+          지금 메일로 받으면 30초 안에 확인할 수 있습니다.
         </p>
+
+        <div class="cta-proof-box">
+          <div class="cta-proof-title">이메일로 받는 내용</div>
+          <div class="cta-proof-text">
+            결과 유형만 다시 보여주는 것이 아니라, 왜 이 음료가 맞는지와 오늘 바로 적용할 수 있는 카페 루틴, 피하면 좋은 행동까지 함께 전달합니다.
+          </div>
+        </div>
 
         <div class="benefit-row">
           <div class="benefit-item">
@@ -937,12 +1031,18 @@
           </div>
           <div class="benefit-item">
             <span class="benefit-dot">◆</span>
-            <span>지금 상태에 맞는 카페 루틴 3단계</span>
+            <span>오늘 카페에서 바로 써볼 수 있는 루틴 3단계</span>
           </div>
           <div class="benefit-item">
             <span class="benefit-dot">◆</span>
-            <span>오늘 피하면 좋은 행동과 한 줄 제안</span>
+            <span>지금 상태에서 피하면 좋은 행동 1가지</span>
           </div>
+        </div>
+
+        <div class="micro-copy">
+          <span class="micro-chip">광고성 메일 없음</span>
+          <span class="micro-chip">결과 메일 1회만 발송</span>
+          <span class="micro-chip">입력 즉시 전송</span>
         </div>
 
         <form class="lead-form" id="leadForm" novalidate>
@@ -957,12 +1057,12 @@
               required
             />
             <div class="lead-helper">
-              입력한 이메일로 결과 안내 메일 1회만 발송됩니다.
+              입력한 이메일로 결과 메일 1회만 발송됩니다. 광고성 메일은 보내지 않습니다.
             </div>
           </div>
 
           <button type="submit" class="cta-btn" id="submitLeadBtn">
-            상세 결과 받기 →
+            상세 결과 이메일로 받기 →
           </button>
 
           <div id="formMessage" class="form-message"></div>
@@ -972,7 +1072,7 @@
         <div id="successPanel" class="success-panel hidden">
           <div class="success-title">신청이 완료되었습니다.</div>
           <div class="success-text">
-            입력하신 이메일로 상세 결과를 발송했습니다. 메일함을 확인해 주세요.
+            입력하신 이메일로 상세 결과를 발송했습니다. 받은편지함 또는 스팸함을 확인해 주세요.
           </div>
         </div>
       </div>
@@ -985,7 +1085,7 @@
 </div>
 
 <script>
-  const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxNP-1OpgGTkQhPw9r2YDUqliSlj6c3zNwud-uB2UBbwK2pd8tWsWRMM0PBKw-UT0mWxw/exec';
+  const GAS_WEB_APP_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
 
   const questions = [
     {
@@ -1123,7 +1223,11 @@
     document.getElementById('landingCard').classList.add('hidden');
     document.getElementById('quizCard').classList.remove('hidden');
     renderQuestion();
-    trackEvent('start_quiz');
+
+    trackEvent('start_quiz', {
+      entry_point: 'hero_cta'
+    });
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -1171,6 +1275,10 @@
       alert('하나를 선택해주세요.');
       return;
     }
+
+    trackEvent('click_next', {
+      current_question: current + 1
+    });
 
     if (current < questions.length - 1) {
       current++;
@@ -1231,7 +1339,7 @@
 
     trackEvent('click_result_cta', {
       result_type: finalResult.label,
-      cta_text: '상세 결과 받기',
+      cta_text: '상세 결과 이메일로 받기',
       destination: 'onsite_email_form'
     });
 
@@ -1305,7 +1413,7 @@
       console.error(error);
       setFormMessage('전송 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.', 'error');
       submitLeadBtn.disabled = false;
-      submitLeadBtn.textContent = '상세 결과 받기 →';
+      submitLeadBtn.textContent = '상세 결과 이메일로 받기 →';
     }
   }
 
@@ -1318,7 +1426,7 @@
     emailInput.value = '';
     setFormMessage('');
     submitLeadBtn.disabled = false;
-    submitLeadBtn.textContent = '상세 결과 받기 →';
+    submitLeadBtn.textContent = '상세 결과 이메일로 받기 →';
     successPanel.classList.add('hidden');
     leadForm.classList.remove('hidden');
 
@@ -1326,6 +1434,7 @@
     document.getElementById('landingCard').classList.remove('hidden');
 
     trackEvent('restart_quiz');
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
