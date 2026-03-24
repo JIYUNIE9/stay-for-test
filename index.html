@@ -3,1090 +3,893 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>오늘의 한 잔을 고르기 전에 | STAY FOR</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-
+  <title>잠시 쉬어가도 될까요 | STAY FOR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+ 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVRS6J9F6V"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-CVRS6J9F6V', {
-      send_page_view: true
-    });
+    gtag('config', 'G-CVRS6J9F6V', { send_page_view: true });
   </script>
-
+ 
   <style>
     :root {
-      --cream: #f7f1e8;
-      --parchment: #ede5d5;
-      --warm-white: #fdfaf5;
-      --espresso: #1c120a;
-      --bark: #4a2e18;
-      --caramel: #9b6033;
-      --honey: #c8883a;
-      --gold: #d4a85a;
-      --mist: #8a7868;
-      --border: rgba(74,46,24,0.12);
-      --error: #b0413e;
-      --success-bg: #f3efe7;
-
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --sans: 'Noto Sans KR', sans-serif;
+      --bg:        #f4ede2;
+      --bg2:       #ede4d6;
+      --card:      #fdfaf5;
+      --dark:      #1a110a;
+      --brown:     #5c3520;
+      --caramel:   #9b6033;
+      --gold:      #c8973a;
+      --gold-lt:   #ddb96a;
+      --mist:      #8a7462;
+      --border:    rgba(92,53,32,0.1);
+      --serif:     'Noto Serif KR', Georgia, serif;
+      --sans:      'Noto Sans KR', sans-serif;
     }
-
+ 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
+ 
     body {
       font-family: var(--sans);
-      background: var(--cream);
-      color: var(--espresso);
-      line-height: 1.7;
+      background: var(--bg);
+      color: var(--dark);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-
+ 
     .hidden { display: none !important; }
-
-    body::before {
+ 
+    /* grain */
+    body::after {
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
       pointer-events: none;
-      z-index: 1000;
-      opacity: .45;
+      z-index: 9999;
     }
-
-    .page {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 40px 20px 80px;
-    }
-
-    .site-header {
-      text-align: center;
-      margin-bottom: 48px;
-      animation: fadeDown .7s ease both;
-    }
-
-    .brand-wordmark {
-      font-family: var(--serif);
-      font-size: 13px;
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      color: var(--caramel);
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .header-rule {
-      width: 40px;
-      height: 1px;
-      background: var(--gold);
-      margin: 0 auto;
-    }
-
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    #landingCard { animation: fadeUp .7s .1s ease both; }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 0;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(28,18,10,0.14);
-      min-height: 560px;
-    }
-
-    .hero-left {
-      background: var(--espresso);
-      padding: 52px 44px;
+ 
+    /* ────────────────────────────
+       LANDING
+    ──────────────────────────── */
+    #landingCard {
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-left::before {
-      content: '';
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      border: 1px solid rgba(212,168,90,0.12);
-      bottom: -80px;
-      right: -80px;
-      pointer-events: none;
-    }
-
-    .hero-left::after {
-      content: '';
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      border: 1px solid rgba(212,168,90,0.08);
-      top: -50px;
-      left: -50px;
-      pointer-events: none;
-    }
-
-    .hero-kicker {
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 500;
-    }
-
-    .hero-title {
-      font-family: var(--serif);
-      font-size: 40px;
-      line-height: 1.25;
-      color: #fff;
-      font-weight: 400;
-    }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .hero-desc {
-      font-size: 15px;
-      color: rgba(255,255,255,0.62);
-      line-height: 1.85;
-      font-weight: 300;
-    }
-
-    .hero-desc strong {
-      color: rgba(255,255,255,0.9);
-      font-weight: 500;
-    }
-
-    .hero-benefit-box {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 18px 18px;
-    }
-
-    .hero-benefit-title {
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-
-    .offer-pills {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .offer-pill {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.78);
-    }
-
-    .offer-pill-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      margin-top: 8px;
-    }
-
-    .hero-proof {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .proof-chip {
-      border: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.7);
-      font-size: 12px;
-      border-radius: 99px;
-      padding: 7px 12px;
-    }
-
-    .btn-start {
-      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      background: var(--gold);
-      color: var(--espresso);
-      font-family: var(--sans);
-      font-size: 15px;
-      font-weight: 700;
-      border: none;
-      border-radius: 12px;
-      padding: 18px 28px;
-      cursor: pointer;
-      transition: background .2s, transform .15s, box-shadow .2s;
-      box-shadow: 0 6px 24px rgba(212,168,90,0.3);
-      letter-spacing: .3px;
+      padding: 0 24px 60px;
       position: relative;
-      z-index: 1;
-      width: fit-content;
+      animation: fadeIn .9s ease both;
     }
-
-    .btn-start:hover {
-      background: #e0b668;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 32px rgba(212,168,90,0.4);
+ 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
-
-    .hero-footnote {
+ 
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+ 
+    /* 브랜드 */
+    .brand {
+      font-family: var(--serif);
       font-size: 12px;
-      color: rgba(255,255,255,0.42);
+      letter-spacing: 7px;
+      text-transform: uppercase;
+      color: var(--caramel);
+      margin-bottom: 52px;
+      animation: fadeIn 1s .2s ease both;
+    }
+ 
+    /* 메인 카피 — 광고 문구와 그대로 이어짐 */
+    .landing-copy {
+      text-align: center;
+      max-width: 480px;
+      animation: slideUp .8s .3s ease both;
+    }
+ 
+    .landing-headline {
+      font-family: var(--serif);
+      font-size: clamp(32px, 7vw, 52px);
+      font-weight: 300;
+      line-height: 1.35;
+      color: var(--dark);
+      letter-spacing: -.5px;
+      margin-bottom: 24px;
+    }
+ 
+    .landing-headline em {
+      font-style: italic;
+      color: var(--caramel);
+    }
+ 
+    .landing-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.95;
+      margin-bottom: 40px;
+    }
+ 
+    .landing-sub strong {
+      color: var(--brown);
+      font-weight: 500;
+    }
+ 
+    /* 시작 버튼 */
+    .btn-landing {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--dark);
+      color: var(--gold-lt);
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 99px;
+      padding: 17px 32px;
+      cursor: pointer;
+      transition: opacity .2s, transform .2s;
+      margin-bottom: 18px;
+    }
+ 
+    .btn-landing:hover {
+      opacity: .85;
+      transform: translateY(-2px);
+    }
+ 
+    .landing-hint {
+      font-size: 12px;
+      color: var(--mist);
       letter-spacing: .3px;
-      line-height: 1.7;
+      opacity: .7;
     }
-
-    .hero-right {
-      background: var(--bark) url('./images/stayfor-hero.jpg') center/cover no-repeat;
-      position: relative;
+ 
+    /* 장식 라인 */
+    .deco-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      margin: 40px auto 0;
+      animation: fadeIn 1s 1s ease both;
     }
-
-    .hero-right::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(28,18,10,0.35) 0%, transparent 50%);
-    }
-
+ 
+    /* ────────────────────────────
+       QUIZ
+    ──────────────────────────── */
     #quizCard {
-      background: var(--warm-white);
-      border-radius: 24px;
-      padding: 44px 44px 38px;
-      box-shadow: 0 12px 40px rgba(28,18,10,0.08);
-      border: 1px solid var(--border);
-      animation: fadeUp .45s ease both;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
     }
-
-    .quiz-meta {
+ 
+    .quiz-inner {
+      width: 100%;
+      max-width: 560px;
+      animation: slideUp .45s ease both;
+    }
+ 
+    .quiz-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-
-    .quiz-step-label {
+ 
+    .quiz-brand {
+      font-family: var(--serif);
       font-size: 11px;
-      letter-spacing: 3px;
+      letter-spacing: 5px;
       text-transform: uppercase;
       color: var(--caramel);
-      font-weight: 700;
     }
-
-    .quiz-count {
+ 
+    .quiz-num {
       font-size: 12px;
       color: var(--mist);
+      letter-spacing: 1px;
     }
-
-    .progress-bar-track {
-      height: 2px;
-      background: var(--parchment);
-      border-radius: 99px;
-      margin-bottom: 36px;
+ 
+    .quiz-track {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 44px;
+      position: relative;
       overflow: hidden;
     }
-
-    .progress-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--caramel), var(--honey));
-      border-radius: 99px;
-      transition: width .35s ease;
+ 
+    .quiz-fill {
+      position: absolute;
+      top: 0; left: 0; height: 100%;
+      background: var(--gold);
+      transition: width .4s ease;
     }
-
+ 
     .q-text {
       font-family: var(--serif);
-      font-size: 26px;
-      line-height: 1.5;
-      color: var(--espresso);
-      font-weight: 400;
-      margin-bottom: 28px;
+      font-size: clamp(20px, 4vw, 27px);
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--dark);
+      margin-bottom: 32px;
     }
-
-    .options-wrap {
+ 
+    .opts {
       display: flex;
       flex-direction: column;
       gap: 10px;
+      margin-bottom: 36px;
     }
-
+ 
     .opt {
       display: flex;
       align-items: flex-start;
       gap: 14px;
-      background: #fdf9f4;
-      border: 1.5px solid #e8ddd0;
-      border-radius: 14px;
-      padding: 17px 20px;
+      padding: 18px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
       cursor: pointer;
       font-size: 15px;
+      font-weight: 300;
       font-family: var(--sans);
-      color: var(--bark);
-      transition: all .18s ease;
+      color: var(--brown);
       text-align: left;
       width: 100%;
-      line-height: 1.6;
+      line-height: 1.65;
+      transition: border-color .15s, background .15s, transform .15s;
     }
-
-    .opt-marker {
-      width: 20px;
-      height: 20px;
+ 
+    .opt:hover {
+      border-color: var(--gold);
+      background: #fdf6ec;
+      transform: translateX(3px);
+    }
+ 
+    .opt.selected {
+      border-color: var(--caramel);
+      background: #fdf0e0;
+    }
+ 
+    .opt-dot {
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
-      border: 1.5px solid #d0bfac;
+      border: 1.5px solid #c8b49a;
       flex-shrink: 0;
-      margin-top: 2px;
-      transition: all .18s;
+      margin-top: 3px;
+      transition: all .15s;
       display: grid;
       place-items: center;
     }
-
-    .opt:hover {
-      border-color: var(--honey);
-      background: #fdf4ea;
-    }
-
-    .opt:hover .opt-marker {
-      border-color: var(--honey);
-    }
-
-    .opt.selected {
-      border-color: var(--caramel);
-      background: #fdf0e2;
-    }
-
-    .opt.selected .opt-marker {
+ 
+    .opt.selected .opt-dot {
       background: var(--caramel);
       border-color: var(--caramel);
     }
-
-    .opt.selected .opt-marker::after {
+ 
+    .opt.selected .opt-dot::after {
       content: '';
-      width: 6px;
-      height: 6px;
+      width: 5px; height: 5px;
       border-radius: 50%;
       background: #fff;
     }
-
+ 
     .quiz-nav {
       display: flex;
       gap: 10px;
-      margin-top: 30px;
     }
-
+ 
     .btn-prev {
-      background: var(--parchment);
-      color: var(--bark);
-      border: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--mist);
       border-radius: 12px;
-      padding: 14px 22px;
-      font-size: 14px;
-      font-weight: 500;
+      padding: 14px 20px;
+      font-size: 13px;
       font-family: var(--sans);
       cursor: pointer;
       transition: opacity .15s;
     }
-
-    .btn-prev:hover { opacity: .75; }
-
+ 
+    .btn-prev:hover { opacity: .6; }
+ 
     .btn-next {
       flex: 1;
-      background: var(--espresso);
-      color: var(--gold);
+      background: var(--dark);
+      color: var(--gold-lt);
       border: none;
       border-radius: 12px;
-      padding: 14px 22px;
+      padding: 14px 20px;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 500;
       font-family: var(--sans);
+      letter-spacing: .5px;
       cursor: pointer;
       transition: opacity .15s, transform .15s;
-      letter-spacing: .5px;
     }
-
-    .btn-next:hover {
-      opacity: .88;
-      transform: translateY(-1px);
-    }
-
+ 
+    .btn-next:hover { opacity: .85; transform: translateY(-1px); }
+ 
+    /* ────────────────────────────
+       RESULT
+    ──────────────────────────── */
     #resultCard {
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 12px 40px rgba(28,18,10,0.1);
-      border: 1px solid var(--border);
-      animation: fadeUp .45s ease both;
+      min-height: 100dvh;
+      animation: slideUp .5s ease both;
     }
-
-    .res-hero {
-      background: var(--espresso);
-      padding: 48px 44px 40px;
+ 
+    /* 결과 히어로 — 전면 감성 */
+    .res-full {
+      background: var(--dark);
+      min-height: 56vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 32px 72px;
+      text-align: center;
       position: relative;
       overflow: hidden;
     }
-
-    .res-hero::before {
+ 
+    /* 배경 원 장식 */
+    .res-full::before {
       content: '';
       position: absolute;
-      width: 400px;
-      height: 400px;
+      width: 500px; height: 500px;
       border-radius: 50%;
-      border: 1px solid rgba(212,168,90,0.1);
-      bottom: -150px;
-      right: -80px;
+      border: 1px solid rgba(200,151,58,0.08);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      pointer-events: none;
     }
-
-    .res-eyebrow {
+ 
+    .res-full::after {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,151,58,0.05);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      pointer-events: none;
+    }
+ 
+    .res-brand {
       font-size: 11px;
-      letter-spacing: 4px;
+      letter-spacing: 6px;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 20px;
-      font-weight: 700;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 1;
+      opacity: .8;
+    }
+ 
+    .res-icon {
+      font-size: 56px;
+      line-height: 1;
+      margin-bottom: 22px;
       position: relative;
       z-index: 1;
     }
-
-    .res-type-name {
+ 
+    .res-type {
       font-family: var(--serif);
-      font-size: 36px;
+      font-size: clamp(30px, 7vw, 48px);
+      font-weight: 300;
       color: #fff;
-      font-weight: 400;
-      line-height: 1.15;
+      line-height: 1.2;
+      margin-bottom: 10px;
       position: relative;
       z-index: 1;
     }
-
-    .res-drink-name {
-      font-size: 14px;
+ 
+    .res-drink {
+      font-size: 13px;
       color: var(--gold);
-      margin-top: 6px;
-      letter-spacing: 1px;
-      font-weight: 500;
+      letter-spacing: 1.5px;
+      font-weight: 400;
+      margin-bottom: 28px;
       position: relative;
       z-index: 1;
     }
-
+ 
     .res-tagline {
-      margin-top: 22px;
       font-family: var(--serif);
       font-size: 17px;
       font-style: italic;
-      color: rgba(255,255,255,0.65);
-      border-left: 2px solid var(--gold);
-      padding-left: 16px;
-      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.85;
+      max-width: 400px;
+      white-space: pre-line;
       position: relative;
       z-index: 1;
-      white-space: pre-line;
     }
-
+ 
+    /* 결과 바디 */
     .res-body {
-      background: var(--warm-white);
-      padding: 36px 44px;
+      background: var(--card);
+      padding: 52px 24px 72px;
     }
-
-    .mini-result {
-      background: var(--cream);
+ 
+    .res-body-inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+ 
+    /* 상태 요약 — 작고 조용하게 */
+    .summary-block {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+ 
+    .summary-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--caramel);
+      margin-bottom: 14px;
+      opacity: .8;
+    }
+ 
+    .summary-text {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--brown);
+      line-height: 1.85;
+    }
+ 
+    /* 블러 티저 */
+    .teaser-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+ 
+    .teaser-item {
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 18px;
-      padding: 22px 20px;
-      margin-bottom: 22px;
+      padding: 22px 18px;
+      position: relative;
+      overflow: hidden;
+      min-height: 170px;
     }
-
-    .mini-result-title {
-      font-size: 12px;
+ 
+    .teaser-label {
+      font-size: 10px;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--caramel);
-      font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      display: block;
     }
-
-    .mini-result-text {
-      font-size: 14px;
-      color: var(--bark);
-      line-height: 1.8;
-    }
-
-    .teaser-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 26px;
-    }
-
-    .teaser-box {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      position: relative;
-      overflow: hidden;
-      min-height: 186px;
-    }
-
-    .teaser-box-title {
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--caramel);
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .teaser-box-text {
-      font-size: 14px;
+ 
+    .teaser-text {
+      font-size: 13px;
+      font-weight: 300;
       color: var(--mist);
-      line-height: 1.75;
-    }
-
-    .teaser-blur {
-      filter: blur(5px);
+      line-height: 1.8;
+      filter: blur(4.5px);
       user-select: none;
       pointer-events: none;
     }
-
-    .teaser-lock-overlay {
+ 
+    .teaser-veil {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 20%, rgba(247,241,232,0.97) 68%);
+      background: linear-gradient(180deg, transparent 25%, rgba(244,237,226,0.96) 65%);
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      padding-bottom: 14px;
+      padding-bottom: 16px;
     }
-
-    .lock-tag {
-      background: var(--espresso);
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 700;
+ 
+    .teaser-lock {
+      font-size: 10px;
       letter-spacing: 1.5px;
       text-transform: uppercase;
+      color: var(--dark);
+      background: var(--gold-lt);
       border-radius: 99px;
       padding: 6px 14px;
+      font-weight: 500;
     }
-
-    .res-divider {
-      width: 40px;
+ 
+    /* 구분선 */
+    .gold-rule {
+      width: 32px;
       height: 1px;
       background: var(--gold);
-      margin: 0 auto 26px;
+      margin: 0 auto 44px;
+      opacity: .6;
     }
-
-    .cta-block {
-      background: var(--espresso);
-      border-radius: 20px;
-      padding: 34px 32px;
+ 
+    /* CTA 블록 — 감성 유지하며 설득 */
+    .cta-wrap {
+      background: var(--dark);
+      border-radius: 24px;
+      padding: 44px 36px;
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
-
-    .cta-block::before {
+ 
+    .cta-wrap::before {
       content: '';
       position: absolute;
-      width: 260px;
-      height: 260px;
+      width: 360px; height: 360px;
       border-radius: 50%;
-      border: 1px solid rgba(212,168,90,0.1);
-      bottom: -80px;
-      right: -60px;
+      border: 1px solid rgba(200,151,58,0.07);
+      bottom: -120px; right: -80px;
+      pointer-events: none;
     }
-
-    .cta-eyebrow {
-      font-size: 11px;
+ 
+    .cta-badge {
+      display: inline-block;
+      font-size: 10px;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 10px;
-      font-weight: 700;
-      position: relative;
-      z-index: 1;
+      margin-bottom: 18px;
+      opacity: .85;
     }
-
+ 
     .cta-headline {
       font-family: var(--serif);
-      font-size: 28px;
+      font-size: clamp(22px, 5vw, 30px);
+      font-weight: 300;
       color: #fff;
-      line-height: 1.4;
-      margin-bottom: 10px;
-      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 14px;
       position: relative;
       z-index: 1;
     }
-
+ 
     .cta-headline em {
       font-style: italic;
-      color: var(--gold);
+      color: var(--gold-lt);
     }
-
+ 
     .cta-sub {
       font-size: 14px;
-      color: rgba(255,255,255,0.66);
-      margin-bottom: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.52);
       line-height: 1.9;
+      margin-bottom: 28px;
       position: relative;
       z-index: 1;
     }
-
-    .cta-urgency {
-      font-size: 13px;
-      color: rgba(212,168,90,0.95);
-      margin-bottom: 18px;
-      line-height: 1.9;
-      position: relative;
-      z-index: 1;
-      font-weight: 500;
-    }
-
-    .cta-proof-box {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: 14px 14px;
-      margin-bottom: 18px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-proof-title {
-      font-size: 12px;
-      color: var(--gold);
-      font-weight: 700;
-      margin-bottom: 8px;
-      letter-spacing: 1px;
-    }
-
-    .cta-proof-text {
-      font-size: 13px;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.8;
-    }
-
-    .benefit-row {
+ 
+    /* 혜택 — 최소화, 감성 우선 */
+    .cta-benefits {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-bottom: 18px;
+      margin-bottom: 30px;
+      text-align: left;
       position: relative;
       z-index: 1;
     }
-
-    .benefit-item {
+ 
+    .cta-benefit {
       display: flex;
       align-items: flex-start;
       gap: 10px;
       font-size: 13px;
-      color: rgba(255,255,255,0.78);
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
     }
-
-    .benefit-dot {
+ 
+    .cta-benefit-dot {
       color: var(--gold);
       flex-shrink: 0;
-      font-size: 11px;
-      margin-top: 3px;
+      margin-top: 4px;
+      font-size: 7px;
     }
-
-    .micro-copy {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .micro-chip {
-      border: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.66);
-      font-size: 11px;
-      border-radius: 99px;
-      padding: 7px 10px;
-    }
-
+ 
+    /* 이메일 폼 */
     .lead-form {
+      display: grid;
+      gap: 10px;
       position: relative;
       z-index: 1;
-      display: grid;
-      gap: 12px;
     }
-
-    .lead-input-wrap {
-      display: grid;
-      gap: 8px;
-    }
-
-    .lead-label {
-      font-size: 12px;
-      color: rgba(255,255,255,0.82);
-      font-weight: 500;
-    }
-
+ 
     .lead-input {
       width: 100%;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.96);
-      color: var(--espresso);
+      background: rgba(255,255,255,0.95);
+      border: 1px solid transparent;
       border-radius: 14px;
-      padding: 16px 16px;
+      padding: 16px 18px;
       font-size: 15px;
+      font-family: var(--sans);
+      color: var(--dark);
       outline: none;
+      transition: border-color .2s, box-shadow .2s;
     }
-
+ 
+    .lead-input::placeholder { color: #b0a090; }
+ 
     .lead-input:focus {
       border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(212,168,90,0.14);
+      box-shadow: 0 0 0 3px rgba(200,151,58,0.12);
     }
-
-    .lead-helper {
-      font-size: 11px;
-      color: rgba(255,255,255,0.48);
-      line-height: 1.6;
-    }
-
+ 
     .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       width: 100%;
       background: var(--gold);
-      color: var(--espresso);
+      color: var(--dark);
       border: none;
       border-radius: 14px;
       padding: 18px 24px;
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 15px;
+      font-weight: 500;
       font-family: var(--sans);
+      letter-spacing: .3px;
       cursor: pointer;
       transition: background .2s, transform .15s, box-shadow .2s;
-      box-shadow: 0 8px 24px rgba(212,168,90,0.25);
-      position: relative;
-      z-index: 1;
+      box-shadow: 0 6px 24px rgba(200,151,58,0.25);
     }
-
+ 
     .cta-btn:hover {
-      background: #e0b668;
+      background: var(--gold-lt);
       transform: translateY(-1px);
-      box-shadow: 0 10px 30px rgba(212,168,90,0.35);
+      box-shadow: 0 10px 28px rgba(200,151,58,0.32);
     }
-
+ 
     .cta-btn:disabled {
-      opacity: .65;
+      opacity: .6;
       cursor: not-allowed;
       transform: none;
-      box-shadow: none;
     }
-
-    .form-message {
-      min-height: 20px;
+ 
+    .form-msg {
+      min-height: 18px;
       font-size: 12px;
       line-height: 1.6;
-      position: relative;
-      z-index: 1;
     }
-
-    .form-message.error { color: #ffd3cf; }
-    .form-message.success { color: #f3deb0; }
-
-    .cta-note {
+ 
+    .form-msg.error   { color: #ffbdba; }
+    .form-msg.success { color: #f0d898; }
+ 
+    .cta-footnote {
+      margin-top: 10px;
       font-size: 11px;
-      color: rgba(255,255,255,0.28);
-      margin-top: 6px;
-      letter-spacing: .3px;
-      text-align: center;
+      color: rgba(255,255,255,0.25);
       position: relative;
       z-index: 1;
     }
-
+ 
+    /* 성공 패널 */
     .success-panel {
       margin-top: 18px;
-      background: var(--success-bg);
-      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 16px;
-      padding: 18px 18px;
+      padding: 20px 18px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
     }
-
+ 
     .success-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--bark);
-      margin-bottom: 6px;
+      font-family: var(--serif);
+      font-size: 16px;
+      color: var(--gold-lt);
+      margin-bottom: 8px;
     }
-
+ 
     .success-text {
       font-size: 13px;
-      color: var(--mist);
+      color: rgba(255,255,255,0.5);
       line-height: 1.75;
     }
-
-    .restart-wrap {
+ 
+    /* 재시작 */
+    .restart-row {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 28px;
     }
-
+ 
     .btn-restart {
       background: none;
       border: none;
-      color: var(--mist);
       font-size: 12px;
       font-family: var(--sans);
+      color: var(--mist);
       cursor: pointer;
       text-decoration: underline;
       text-underline-offset: 3px;
+      opacity: .7;
     }
-
-    @media (max-width: 680px) {
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .hero-right { height: 220px; }
-      .hero-left { padding: 36px 28px; }
-      .hero-title { font-size: 30px; }
-
-      #quizCard,
-      .res-body { padding: 28px 22px; }
-
-      .res-hero { padding: 36px 28px 30px; }
-      .teaser-grid { grid-template-columns: 1fr; }
-      .q-text { font-size: 21px; }
-      .res-type-name { font-size: 28px; }
-      .cta-headline { font-size: 24px; }
+ 
+    /* ────────────────────────────
+       RESPONSIVE
+    ──────────────────────────── */
+    @media (max-width: 600px) {
+      .landing-headline { font-size: 34px; }
+      .teaser-wrap { grid-template-columns: 1fr; }
+      .cta-wrap { padding: 36px 24px; }
+      .res-full { padding: 64px 24px 56px; }
+      .res-body { padding: 40px 20px 60px; }
     }
   </style>
 </head>
 <body>
-<div class="page">
-
-  <header class="site-header">
-    <span class="brand-wordmark">Stay For</span>
-    <div class="header-rule"></div>
-  </header>
-
-  <!-- 첫 화면 -->
+ 
+  <!-- ① 랜딩 -->
   <div id="landingCard">
-    <div class="hero">
-      <div class="hero-left">
-        <div class="hero-kicker">1분 쉼 타입 테스트</div>
-
-        <h1 class="hero-title">
-          오늘의 한 잔,<br>
-          <em>지금 내 상태에 맞게</em><br>
-          골라보세요.
-        </h1>
-
-        <p class="hero-desc">
-          단순히 커피 취향을 고르는 테스트가 아닙니다.<br>
-          <strong>지금 왜 잘 쉬어지지 않는지</strong>를 보고,<br>
-          오늘 내게 맞는 한 잔과 쉬는 루틴까지 확인할 수 있습니다.
-        </p>
-
-        <div class="hero-benefit-box">
-          <div class="hero-benefit-title">테스트 후 바로 알 수 있는 것</div>
-          <div class="offer-pills">
-            <div class="offer-pill">
-              <div class="offer-pill-dot"></div>
-              <span>내 현재 쉼 상태 유형</span>
-            </div>
-            <div class="offer-pill">
-              <div class="offer-pill-dot"></div>
-              <span>STAY FOR 추천 음료 1잔</span>
-            </div>
-            <div class="offer-pill">
-              <div class="offer-pill-dot"></div>
-              <span>상세 결과 메일: 추천 이유 + 카페 루틴 + 피하면 좋은 행동</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-proof">
-          <span class="proof-chip">약 1분 소요</span>
-          <span class="proof-chip">광고성 메일 없음</span>
-          <span class="proof-chip">결과 메일 1회 발송</span>
-        </div>
-
-        <button class="btn-start" type="button" onclick="startQuiz()">
-          1분만에 내 쉼 타입 확인하기 →
-        </button>
-
-        <p class="hero-footnote">
-          결과 페이지에서 유형과 추천 음료는 바로 확인할 수 있으며,<br>
-          상세 해설은 이메일로 받아볼 수 있습니다.
-        </p>
-      </div>
-
-      <div class="hero-right"></div>
+    <div class="brand">Stay For</div>
+ 
+    <div class="landing-copy">
+      <h1 class="landing-headline">
+        오늘 하루,<br>
+        잠시 쉬어가도<br>
+        <em>될까요.</em>
+      </h1>
+ 
+      <p class="landing-sub">
+        괜찮다는 걸 알면서도<br>
+        쉬는 게 어색한 날이 있습니다.<br><br>
+        지금 내 상태가 어떤지 먼저 확인하면,<br>
+        <strong>오늘 어떻게 쉬면 되는지</strong>가 조금 더 선명해집니다.
+      </p>
+ 
+      <button class="btn-landing" type="button" onclick="startQuiz()">
+        지금 확인해보기 &nbsp;→
+      </button>
+ 
+      <div class="landing-hint">약 1분 · 무료 · 광고성 메일 없음</div>
     </div>
+ 
+    <div class="deco-line"></div>
   </div>
-
-  <!-- 퀴즈 -->
+ 
+  <!-- ② 퀴즈 -->
   <div id="quizCard" class="hidden">
-    <div class="quiz-meta">
-      <div class="quiz-step-label" id="stepLabel">Question 1</div>
-      <div class="quiz-count" id="stepCount">1 / 5</div>
-    </div>
-
-    <div class="progress-bar-track">
-      <div class="progress-bar-fill" id="progressFill" style="width:20%"></div>
-    </div>
-
-    <div class="q-text" id="questionText"></div>
-    <div class="options-wrap" id="optionsWrap"></div>
-
-    <div class="quiz-nav">
-      <button class="btn-prev" type="button" onclick="prevQ()">← 이전</button>
-      <button class="btn-next" type="button" onclick="nextQ()">다음 →</button>
+    <div class="quiz-inner">
+      <div class="quiz-top">
+        <div class="quiz-brand">Stay For</div>
+        <div class="quiz-num" id="stepCount">1 / 5</div>
+      </div>
+ 
+      <div class="quiz-track">
+        <div class="quiz-fill" id="progressFill" style="width:20%"></div>
+      </div>
+ 
+      <div class="q-text" id="questionText"></div>
+      <div class="opts" id="optionsWrap"></div>
+ 
+      <div class="quiz-nav">
+        <button class="btn-prev" type="button" onclick="prevQ()">← 이전</button>
+        <button class="btn-next" type="button" onclick="nextQ()">다음 →</button>
+      </div>
     </div>
   </div>
-
-  <!-- 결과 -->
+ 
+  <!-- ③ 결과 -->
   <div id="resultCard" class="hidden">
-    <div class="res-hero">
-      <div class="res-eyebrow">YOUR RESULT</div>
-      <div class="res-type-name" id="resTypeName"></div>
-      <div class="res-drink-name" id="resDrinkName"></div>
+ 
+    <div class="res-full">
+      <div class="res-brand">Stay For · Result</div>
+      <div class="res-icon" id="resIcon">☕</div>
+      <div class="res-type" id="resTypeName"></div>
+      <div class="res-drink" id="resDrinkName"></div>
       <div class="res-tagline" id="resTagline"></div>
     </div>
-
+ 
     <div class="res-body">
-      <div class="mini-result">
-        <div class="mini-result-title">지금 상태 요약</div>
-        <div class="mini-result-text" id="miniSummary"></div>
-      </div>
-
-      <div class="teaser-grid">
-        <div class="teaser-box">
-          <div class="teaser-box-title">왜 이 음료인가요?</div>
-          <div class="teaser-box-text teaser-blur" id="teaserReason"></div>
-          <div class="teaser-lock-overlay">
-            <div class="lock-tag">추천 이유 전체 보기</div>
+      <div class="res-body-inner">
+ 
+        <div class="summary-block">
+          <div class="summary-label">지금 상태 요약</div>
+          <div class="summary-text" id="miniSummary"></div>
+        </div>
+ 
+        <div class="teaser-wrap">
+          <div class="teaser-item">
+            <span class="teaser-label">왜 이 음료인가요?</span>
+            <div class="teaser-text" id="teaserReason"></div>
+            <div class="teaser-veil">
+              <span class="teaser-lock">추천 이유 보기</span>
+            </div>
+          </div>
+          <div class="teaser-item">
+            <span class="teaser-label">오늘의 카페 루틴</span>
+            <div class="teaser-text" id="teaserRoutine"></div>
+            <div class="teaser-veil">
+              <span class="teaser-lock">루틴 전체 받기</span>
+            </div>
           </div>
         </div>
-
-        <div class="teaser-box">
-          <div class="teaser-box-title">오늘의 카페 루틴</div>
-          <div class="teaser-box-text teaser-blur" id="teaserRoutine"></div>
-          <div class="teaser-lock-overlay">
-            <div class="lock-tag">루틴 전체 받기</div>
+ 
+        <div class="gold-rule"></div>
+ 
+        <div class="cta-wrap">
+          <div class="cta-badge">Full Result</div>
+          <h2 class="cta-headline">
+            왜 이 음료인지,<br>
+            <em>오늘 어떻게 쉬면 되는지</em><br>
+            메일로 받아보세요.
+          </h2>
+ 
+          <p class="cta-sub">
+            추천 이유와 오늘 카페에서 바로 써볼 수 있는 루틴,<br>
+            지금 피하면 좋은 행동까지 함께 보내드립니다.
+          </p>
+ 
+          <div class="cta-benefits">
+            <div class="cta-benefit">
+              <span class="cta-benefit-dot">◆</span>
+              <span>이 음료가 지금 내 상태에 맞는 구체적인 이유</span>
+            </div>
+            <div class="cta-benefit">
+              <span class="cta-benefit-dot">◆</span>
+              <span>오늘 카페에서 바로 써볼 수 있는 루틴 3단계</span>
+            </div>
+            <div class="cta-benefit">
+              <span class="cta-benefit-dot">◆</span>
+              <span>지금 상태에서 피하면 좋은 행동 1가지</span>
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div class="res-divider"></div>
-
-      <div class="cta-block">
-        <div class="cta-eyebrow">FULL RESULT</div>
-        <h2 class="cta-headline">
-          지금 결과를 끝까지 보려면,<br>
-          <em>상세 결과를 이메일로 받아보세요.</em>
-        </h2>
-
-        <p class="cta-sub">
-          화면에서는 결과 일부만 공개됩니다. 이메일을 입력하면 지금 내 상태에 맞는 추천 이유와 카페 루틴 전체를 바로 보내드립니다.
-        </p>
-
-        <p class="cta-urgency">
-          지금 메일로 받으면 30초 안에 확인할 수 있습니다.
-        </p>
-
-        <div class="cta-proof-box">
-          <div class="cta-proof-title">이메일로 받는 내용</div>
-          <div class="cta-proof-text">
-            결과 유형만 다시 보여주는 것이 아니라, 왜 이 음료가 맞는지와 오늘 바로 적용할 수 있는 카페 루틴, 피하면 좋은 행동까지 함께 전달합니다.
-          </div>
-        </div>
-
-        <div class="benefit-row">
-          <div class="benefit-item">
-            <span class="benefit-dot">◆</span>
-            <span>유형별 추천 음료의 상세 이유</span>
-          </div>
-          <div class="benefit-item">
-            <span class="benefit-dot">◆</span>
-            <span>오늘 카페에서 바로 써볼 수 있는 루틴 3단계</span>
-          </div>
-          <div class="benefit-item">
-            <span class="benefit-dot">◆</span>
-            <span>지금 상태에서 피하면 좋은 행동 1가지</span>
-          </div>
-        </div>
-
-        <div class="micro-copy">
-          <span class="micro-chip">광고성 메일 없음</span>
-          <span class="micro-chip">결과 메일 1회만 발송</span>
-          <span class="micro-chip">입력 즉시 전송</span>
-        </div>
-
-        <form class="lead-form" id="leadForm" novalidate>
-          <div class="lead-input-wrap">
-            <label class="lead-label" for="emailInput">이메일 주소</label>
+ 
+          <form class="lead-form" id="leadForm" novalidate>
             <input
               type="email"
               id="emailInput"
               class="lead-input"
-              placeholder="example@email.com"
+              placeholder="이메일 주소를 입력해주세요"
               autocomplete="email"
               required
             />
-            <div class="lead-helper">
-              입력한 이메일로 결과 메일 1회만 발송됩니다. 광고성 메일은 보내지 않습니다.
+            <button type="submit" class="cta-btn" id="submitLeadBtn">
+              상세 결과 받아보기 →
+            </button>
+            <div id="formMessage" class="form-msg"></div>
+          </form>
+ 
+          <div id="successPanel" class="success-panel hidden">
+            <div class="success-title">잘 도착했습니다</div>
+            <div class="success-text">
+              받은편지함을 확인해 주세요.<br>
+              없으면 스팸함도 한번 살펴봐 주세요.
             </div>
           </div>
-
-          <button type="submit" class="cta-btn" id="submitLeadBtn">
-            상세 결과 이메일로 받기 →
-          </button>
-
-          <div id="formMessage" class="form-message"></div>
-          <div class="cta-note">이메일 주소 자체는 GA4로 보내지지 않습니다.</div>
-        </form>
-
-        <div id="successPanel" class="success-panel hidden">
-          <div class="success-title">신청이 완료되었습니다.</div>
-          <div class="success-text">
-            입력하신 이메일로 상세 결과를 발송했습니다. 받은편지함 또는 스팸함을 확인해 주세요.
-          </div>
+ 
+          <div class="cta-footnote">결과 안내 메일 1회만 발송됩니다 · 광고성 메일 없음</div>
         </div>
-      </div>
-
-      <div class="restart-wrap">
-        <button class="btn-restart" type="button" onclick="restartQuiz()">처음부터 다시 하기</button>
+ 
+        <div class="restart-row">
+          <button class="btn-restart" type="button" onclick="restartQuiz()">처음부터 다시 하기</button>
+        </div>
+ 
       </div>
     </div>
   </div>
-</div>
-
+ 
 <script>
-  const GAS_WEB_APP_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
-
+  const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxNP-1OpgGTkQhPw9r2YDUqliSlj6c3zNwud-uB2UBbwK2pd8tWsWRMM0PBKw-UT0mWxw/exec';
+ 
   const questions = [
     {
       text: '카페에 도착했을 때 가장 먼저 하는 행동은?',
@@ -1129,10 +932,11 @@
       ]
     }
   ];
-
+ 
   const results = {
     overload: {
       key: 'overload',
+      icon: '🫖',
       typeName: '과부하형',
       drinkName: 'STAY FOR — 캐모마일 허브 라떼',
       tagline: '몸은 멈췄지만 마음은 아직 달리고 있는 당신에게.\n자극을 끄고 싶을 때 필요한 건 카페인이 아니라 온도입니다.',
@@ -1143,6 +947,7 @@
     },
     selfconscious: {
       key: 'selfconscious',
+      icon: '🥛',
       typeName: '눈치형',
       drinkName: 'STAY FOR — 바닐라 오트 밀크',
       tagline: '공간에 있어도 편하지 않은 당신에게.\n부드럽고 익숙한 단맛이 먼저 긴장을 풀어줄 거예요.',
@@ -1153,6 +958,7 @@
     },
     drained: {
       key: 'drained',
+      icon: '🍦',
       typeName: '방전형',
       drinkName: 'STAY FOR — 흑임자 크림 라떼',
       tagline: '에너지가 바닥난 상태, 지금은 자극보다 보충이 필요합니다.\n고소하고 묵직한 한 잔이 오늘을 버티게 해줄 거예요.',
@@ -1163,6 +969,7 @@
     },
     recovery: {
       key: 'recovery',
+      icon: '☕',
       typeName: '회복형',
       drinkName: 'STAY FOR — 싱글오리진 핸드드립',
       tagline: '쉬는 감각을 조금씩 되찾고 있는 당신에게.\n천천히 내린 한 잔, 그 시간 자체가 오늘의 루틴입니다.',
@@ -1172,272 +979,194 @@
       teaserRoutine: '음료를 받으면 첫 몇 분은 계획을 세우기보다 향과 온도를 인식하면서 내 호흡을 다시 정리하는 데 집중해보세요.'
     }
   };
-
+ 
   let current = 0;
   const answers = new Array(questions.length).fill(null);
   let finalResult = null;
-
-  const leadForm = document.getElementById('leadForm');
-  const emailInput = document.getElementById('emailInput');
-  const formMessage = document.getElementById('formMessage');
-  const submitLeadBtn = document.getElementById('submitLeadBtn');
-  const successPanel = document.getElementById('successPanel');
-
-  function trackEvent(name, params = {}, callback = null) {
-    if (typeof gtag !== 'function') {
-      if (typeof callback === 'function') callback();
-      return;
-    }
-
-    const eventParams = { ...params };
-
-    if (typeof callback === 'function') {
-      eventParams.event_callback = callback;
-      eventParams.event_timeout = 2000;
-    }
-
-    gtag('event', name, eventParams);
+ 
+  const leadForm       = document.getElementById('leadForm');
+  const emailInput     = document.getElementById('emailInput');
+  const formMessage    = document.getElementById('formMessage');
+  const submitLeadBtn  = document.getElementById('submitLeadBtn');
+  const successPanel   = document.getElementById('successPanel');
+ 
+  function trackEvent(name, params = {}) {
+    if (typeof gtag === 'function') gtag('event', name, params);
   }
-
+ 
   function getUtmParams() {
-    const url = new URL(window.location.href);
+    const p = new URL(window.location.href).searchParams;
     return {
-      utm_source: url.searchParams.get('utm_source') || '',
-      utm_medium: url.searchParams.get('utm_medium') || '',
-      utm_campaign: url.searchParams.get('utm_campaign') || '',
-      utm_content: url.searchParams.get('utm_content') || '',
-      utm_term: url.searchParams.get('utm_term') || ''
+      utm_source:   p.get('utm_source')   || '',
+      utm_medium:   p.get('utm_medium')   || '',
+      utm_campaign: p.get('utm_campaign') || '',
+      utm_content:  p.get('utm_content')  || '',
+      utm_term:     p.get('utm_term')     || ''
     };
   }
-
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+ 
+  function setMsg(msg, type = '') {
+    formMessage.textContent = msg;
+    formMessage.className   = 'form-msg' + (type ? ' ' + type : '');
   }
-
-  function setFormMessage(message, type = '') {
-    formMessage.textContent = message;
-    formMessage.className = 'form-message' + (type ? ` ${type}` : '');
-  }
-
+ 
   function startQuiz() {
     document.getElementById('landingCard').classList.add('hidden');
     document.getElementById('quizCard').classList.remove('hidden');
     renderQuestion();
-
-    trackEvent('start_quiz', {
-      entry_point: 'hero_cta'
-    });
-
+    trackEvent('start_quiz', { entry_point: 'hero_cta' });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
+ 
   function renderQuestion() {
-    const q = questions[current];
+    const q   = questions[current];
     const pct = ((current + 1) / questions.length) * 100;
-
+ 
     document.getElementById('questionText').textContent = q.text;
-    document.getElementById('stepLabel').textContent = `Question ${current + 1}`;
-    document.getElementById('stepCount').textContent = `${current + 1} / ${questions.length}`;
+    document.getElementById('stepCount').textContent    = `${current + 1} / ${questions.length}`;
     document.getElementById('progressFill').style.width = pct + '%';
-
+ 
     const wrap = document.getElementById('optionsWrap');
     wrap.innerHTML = '';
-
+ 
     q.options.forEach((opt, idx) => {
-      const btn = document.createElement('button');
+      const btn    = document.createElement('button');
       btn.className = 'opt' + (answers[current] === idx ? ' selected' : '');
-      btn.type = 'button';
-
-      const marker = document.createElement('span');
-      marker.className = 'opt-marker';
-
-      const text = document.createElement('span');
-      text.textContent = opt.text;
-
-      btn.appendChild(marker);
-      btn.appendChild(text);
-
+      btn.type     = 'button';
+ 
+      const dot  = document.createElement('span');
+      dot.className = 'opt-dot';
+ 
+      const txt  = document.createElement('span');
+      txt.textContent = opt.text;
+ 
+      btn.appendChild(dot);
+      btn.appendChild(txt);
+ 
       btn.onclick = () => {
         answers[current] = idx;
-        trackEvent('select_answer', {
-          q: current + 1,
-          answer: opt.text
-        });
+        trackEvent('select_answer', { q: current + 1, answer: opt.text });
         renderQuestion();
       };
-
       wrap.appendChild(btn);
     });
   }
-
+ 
   function nextQ() {
-    if (answers[current] === null) {
-      alert('하나를 선택해주세요.');
-      return;
-    }
-
-    trackEvent('click_next', {
-      current_question: current + 1
-    });
-
-    if (current < questions.length - 1) {
-      current++;
-      renderQuestion();
-    } else {
-      showResult();
-    }
-
+    if (answers[current] === null) { alert('하나를 선택해주세요.'); return; }
+    trackEvent('click_next', { current_question: current + 1 });
+    if (current < questions.length - 1) { current++; renderQuestion(); }
+    else showResult();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
+ 
   function prevQ() {
-    if (current > 0) {
-      current--;
-      renderQuestion();
-    }
-
+    if (current > 0) { current--; renderQuestion(); }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
+ 
   function showResult() {
     const score = { overload: 0, selfconscious: 0, drained: 0, recovery: 0 };
-
     questions.forEach((q, qi) => {
-      const sel = q.options[answers[qi]];
-      Object.entries(sel.scores).forEach(([k, v]) => score[k] += v);
+      Object.entries(q.options[answers[qi]].scores).forEach(([k, v]) => score[k] += v);
     });
-
     const topKey = Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
-    finalResult = results[topKey];
-
+    finalResult  = results[topKey];
+ 
     document.getElementById('quizCard').classList.add('hidden');
     document.getElementById('resultCard').classList.remove('hidden');
-
+ 
+    document.getElementById('resIcon').textContent     = finalResult.icon;
     document.getElementById('resTypeName').textContent = finalResult.typeName;
-    document.getElementById('resDrinkName').textContent = finalResult.drinkName;
-    document.getElementById('resTagline').textContent = finalResult.tagline;
+    document.getElementById('resDrinkName').textContent= finalResult.drinkName;
+    document.getElementById('resTagline').textContent  = finalResult.tagline;
     document.getElementById('miniSummary').textContent = finalResult.miniSummary;
-    document.getElementById('teaserReason').textContent = finalResult.teaserReason;
-    document.getElementById('teaserRoutine').textContent = finalResult.teaserRoutine;
-
-    trackEvent('view_result', {
-      result_type: finalResult.label
-    });
-
+    document.getElementById('teaserReason').textContent= finalResult.teaserReason;
+    document.getElementById('teaserRoutine').textContent= finalResult.teaserRoutine;
+ 
+    trackEvent('view_result', { result_type: finalResult.label });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
-  async function submitLead(event) {
-    event.preventDefault();
-
-    if (!finalResult) {
-      alert('결과를 먼저 확인해주세요.');
-      return;
-    }
-
+ 
+  async function submitLead(e) {
+    e.preventDefault();
+    if (!finalResult) { alert('결과를 먼저 확인해주세요.'); return; }
+ 
     const email = emailInput.value.trim();
-
+ 
     trackEvent('click_result_cta', {
       result_type: finalResult.label,
-      cta_text: '상세 결과 이메일로 받기',
+      cta_text: '상세 결과 받아보기',
       destination: 'onsite_email_form'
     });
-
-    if (!email) {
-      setFormMessage('이메일 주소를 입력해주세요.', 'error');
-      emailInput.focus();
-      return;
+ 
+    if (!email) { setMsg('이메일 주소를 입력해주세요.', 'error'); emailInput.focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setMsg('이메일 형식을 다시 확인해주세요.', 'error'); emailInput.focus(); return;
     }
-
-    if (!isValidEmail(email)) {
-      setFormMessage('이메일 형식을 다시 확인해주세요.', 'error');
-      emailInput.focus();
-      return;
-    }
-
     if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
-      setFormMessage('Apps Script 웹앱 URL을 먼저 입력해주세요.', 'error');
-      return;
+      setMsg('Apps Script 웹앱 URL을 먼저 입력해주세요.', 'error'); return;
     }
-
-    submitLeadBtn.disabled = true;
-    submitLeadBtn.textContent = '전송 중...';
-    setFormMessage('');
-
+ 
+    submitLeadBtn.disabled     = true;
+    submitLeadBtn.textContent  = '전송 중...';
+    setMsg('');
+ 
     const payload = {
       email,
-      result_key: finalResult.key,
-      result_type: finalResult.label,
-      drink_name: finalResult.drinkName,
-      page_url: window.location.href,
-      referrer: document.referrer || '',
+      result_key:   finalResult.key,
+      result_type:  finalResult.label,
+      drink_name:   finalResult.drinkName,
+      page_url:     window.location.href,
+      referrer:     document.referrer || '',
       submitted_at: new Date().toISOString(),
       ...getUtmParams()
     };
-
+ 
     try {
-      const response = await fetch(GAS_WEB_APP_URL, {
+      const res     = await fetch(GAS_WEB_APP_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8'
-        },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload)
       });
-
-      const rawText = await response.text();
-      let data = {};
-
-      try {
-        data = JSON.parse(rawText);
-      } catch (e) {
-        throw new Error('응답 파싱 실패');
-      }
-
-      if (!response.ok || data.status !== 'success') {
-        throw new Error(data.message || '저장 실패');
-      }
-
+      const data    = JSON.parse(await res.text());
+      if (!res.ok || data.status !== 'success') throw new Error(data.message || '저장 실패');
+ 
       trackEvent('generate_lead', {
-        lead_type: 'email',
-        result_type: finalResult.label,
-        drink_name: finalResult.drinkName,
+        lead_type:      'email',
+        result_type:    finalResult.label,
+        drink_name:     finalResult.drinkName,
         email_submitted: true
       });
-
-      setFormMessage('신청이 완료되었습니다. 이메일을 확인해주세요.', 'success');
+ 
+      setMsg('신청이 완료되었습니다.', 'success');
       successPanel.classList.remove('hidden');
       leadForm.classList.add('hidden');
-
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    } catch (error) {
-      console.error(error);
-      setFormMessage('전송 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.', 'error');
-      submitLeadBtn.disabled = false;
-      submitLeadBtn.textContent = '상세 결과 이메일로 받기 →';
+ 
+    } catch (err) {
+      console.error(err);
+      setMsg('전송 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.', 'error');
+      submitLeadBtn.disabled    = false;
+      submitLeadBtn.textContent = '상세 결과 받아보기 →';
     }
   }
-
+ 
   function restartQuiz() {
-    current = 0;
-    finalResult = null;
-
+    current = 0; finalResult = null;
     for (let i = 0; i < answers.length; i++) answers[i] = null;
-
-    emailInput.value = '';
-    setFormMessage('');
-    submitLeadBtn.disabled = false;
-    submitLeadBtn.textContent = '상세 결과 이메일로 받기 →';
+    emailInput.value          = '';
+    setMsg('');
+    submitLeadBtn.disabled    = false;
+    submitLeadBtn.textContent = '상세 결과 받아보기 →';
     successPanel.classList.add('hidden');
     leadForm.classList.remove('hidden');
-
     document.getElementById('resultCard').classList.add('hidden');
     document.getElementById('landingCard').classList.remove('hidden');
-
     trackEvent('restart_quiz');
-
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
+ 
   leadForm.addEventListener('submit', submitLead);
 </script>
 </body>
