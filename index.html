@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>잠시 쉬어가도 될까요 | STAY FOR</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
- 
+
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVRS6J9F6V"></script>
   <script>
@@ -14,7 +14,7 @@
     gtag('js', new Date());
     gtag('config', 'G-CVRS6J9F6V', { send_page_view: true });
   </script>
- 
+
   <style>
     :root {
       --bg:        #f4ede2;
@@ -30,10 +30,10 @@
       --serif:     'Noto Serif KR', Georgia, serif;
       --sans:      'Noto Sans KR', sans-serif;
     }
- 
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
- 
+
     body {
       font-family: var(--sans);
       background: var(--bg);
@@ -41,9 +41,9 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
- 
+
     .hidden { display: none !important; }
- 
+
     /* grain */
     body::after {
       content: '';
@@ -53,7 +53,7 @@
       pointer-events: none;
       z-index: 9999;
     }
- 
+
     /* ────────────────────────────
        LANDING
     ──────────────────────────── */
@@ -67,17 +67,17 @@
       position: relative;
       animation: fadeIn .9s ease both;
     }
- 
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
     }
- 
+
     @keyframes slideUp {
       from { opacity: 0; transform: translateY(22px); }
       to   { opacity: 1; transform: translateY(0); }
     }
- 
+
     /* 브랜드 */
     .brand {
       font-family: var(--serif);
@@ -88,14 +88,14 @@
       margin-bottom: 52px;
       animation: fadeIn 1s .2s ease both;
     }
- 
+
     /* 메인 카피 — 광고 문구와 그대로 이어짐 */
     .landing-copy {
       text-align: center;
       max-width: 480px;
       animation: slideUp .8s .3s ease both;
     }
- 
+
     .landing-headline {
       font-family: var(--serif);
       font-size: clamp(32px, 7vw, 52px);
@@ -105,12 +105,12 @@
       letter-spacing: -.5px;
       margin-bottom: 24px;
     }
- 
+
     .landing-headline em {
       font-style: italic;
       color: var(--caramel);
     }
- 
+
     .landing-sub {
       font-size: 15px;
       font-weight: 300;
@@ -118,12 +118,12 @@
       line-height: 1.95;
       margin-bottom: 40px;
     }
- 
+
     .landing-sub strong {
       color: var(--brown);
       font-weight: 500;
     }
- 
+
     /* 시작 버튼 */
     .btn-landing {
       display: inline-flex;
@@ -143,19 +143,19 @@
       transition: opacity .2s, transform .2s;
       margin-bottom: 18px;
     }
- 
+
     .btn-landing:hover {
       opacity: .85;
       transform: translateY(-2px);
     }
- 
+
     .landing-hint {
       font-size: 12px;
       color: var(--mist);
       letter-spacing: .3px;
       opacity: .7;
     }
- 
+
     /* 장식 라인 */
     .deco-line {
       width: 1px;
@@ -164,7 +164,7 @@
       margin: 40px auto 0;
       animation: fadeIn 1s 1s ease both;
     }
- 
+
     /* ────────────────────────────
        QUIZ
     ──────────────────────────── */
@@ -176,20 +176,20 @@
       justify-content: center;
       padding: 60px 24px;
     }
- 
+
     .quiz-inner {
       width: 100%;
       max-width: 560px;
       animation: slideUp .45s ease both;
     }
- 
+
     .quiz-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
     }
- 
+
     .quiz-brand {
       font-family: var(--serif);
       font-size: 11px;
@@ -197,13 +197,13 @@
       text-transform: uppercase;
       color: var(--caramel);
     }
- 
+
     .quiz-num {
       font-size: 12px;
       color: var(--mist);
       letter-spacing: 1px;
     }
- 
+
     .quiz-track {
       height: 1px;
       background: var(--border);
@@ -211,14 +211,14 @@
       position: relative;
       overflow: hidden;
     }
- 
+
     .quiz-fill {
       position: absolute;
       top: 0; left: 0; height: 100%;
       background: var(--gold);
       transition: width .4s ease;
     }
- 
+
     .q-text {
       font-family: var(--serif);
       font-size: clamp(20px, 4vw, 27px);
@@ -227,14 +227,14 @@
       color: var(--dark);
       margin-bottom: 32px;
     }
- 
+
     .opts {
       display: flex;
       flex-direction: column;
       gap: 10px;
       margin-bottom: 36px;
     }
- 
+
     .opt {
       display: flex;
       align-items: flex-start;
@@ -253,18 +253,18 @@
       line-height: 1.65;
       transition: border-color .15s, background .15s, transform .15s;
     }
- 
+
     .opt:hover {
       border-color: var(--gold);
       background: #fdf6ec;
       transform: translateX(3px);
     }
- 
+
     .opt.selected {
       border-color: var(--caramel);
       background: #fdf0e0;
     }
- 
+
     .opt-dot {
       width: 18px;
       height: 18px;
@@ -276,24 +276,24 @@
       display: grid;
       place-items: center;
     }
- 
+
     .opt.selected .opt-dot {
       background: var(--caramel);
       border-color: var(--caramel);
     }
- 
+
     .opt.selected .opt-dot::after {
       content: '';
       width: 5px; height: 5px;
       border-radius: 50%;
       background: #fff;
     }
- 
+
     .quiz-nav {
       display: flex;
       gap: 10px;
     }
- 
+
     .btn-prev {
       background: transparent;
       border: 1px solid var(--border);
@@ -305,9 +305,9 @@
       cursor: pointer;
       transition: opacity .15s;
     }
- 
+
     .btn-prev:hover { opacity: .6; }
- 
+
     .btn-next {
       flex: 1;
       background: var(--dark);
@@ -322,9 +322,9 @@
       cursor: pointer;
       transition: opacity .15s, transform .15s;
     }
- 
+
     .btn-next:hover { opacity: .85; transform: translateY(-1px); }
- 
+
     /* ────────────────────────────
        RESULT
     ──────────────────────────── */
@@ -332,7 +332,7 @@
       min-height: 100dvh;
       animation: slideUp .5s ease both;
     }
- 
+
     /* 결과 히어로 — 전면 감성 */
     .res-full {
       background: var(--dark);
@@ -346,7 +346,7 @@
       position: relative;
       overflow: hidden;
     }
- 
+
     /* 배경 원 장식 */
     .res-full::before {
       content: '';
@@ -358,7 +358,7 @@
       transform: translate(-50%,-50%);
       pointer-events: none;
     }
- 
+
     .res-full::after {
       content: '';
       position: absolute;
@@ -369,7 +369,7 @@
       transform: translate(-50%,-50%);
       pointer-events: none;
     }
- 
+
     .res-brand {
       font-size: 11px;
       letter-spacing: 6px;
@@ -380,7 +380,7 @@
       z-index: 1;
       opacity: .8;
     }
- 
+
     .res-icon {
       font-size: 56px;
       line-height: 1;
@@ -388,7 +388,7 @@
       position: relative;
       z-index: 1;
     }
- 
+
     .res-type {
       font-family: var(--serif);
       font-size: clamp(30px, 7vw, 48px);
@@ -399,7 +399,7 @@
       position: relative;
       z-index: 1;
     }
- 
+
     .res-drink {
       font-size: 13px;
       color: var(--gold);
@@ -409,7 +409,7 @@
       position: relative;
       z-index: 1;
     }
- 
+
     .res-tagline {
       font-family: var(--serif);
       font-size: 17px;
@@ -421,24 +421,24 @@
       position: relative;
       z-index: 1;
     }
- 
+
     /* 결과 바디 */
     .res-body {
       background: var(--card);
       padding: 52px 24px 72px;
     }
- 
+
     .res-body-inner {
       max-width: 560px;
       margin: 0 auto;
     }
- 
+
     /* 상태 요약 — 작고 조용하게 */
     .summary-block {
       text-align: center;
       margin-bottom: 48px;
     }
- 
+
     .summary-label {
       font-size: 10px;
       letter-spacing: 3px;
@@ -447,7 +447,7 @@
       margin-bottom: 14px;
       opacity: .8;
     }
- 
+
     .summary-text {
       font-family: var(--serif);
       font-size: 18px;
@@ -455,7 +455,7 @@
       color: var(--brown);
       line-height: 1.85;
     }
- 
+
     /* 블러 티저 */
     .teaser-wrap {
       display: grid;
@@ -463,7 +463,7 @@
       gap: 12px;
       margin-bottom: 48px;
     }
- 
+
     .teaser-item {
       background: var(--bg);
       border: 1px solid var(--border);
@@ -473,7 +473,7 @@
       overflow: hidden;
       min-height: 170px;
     }
- 
+
     .teaser-label {
       font-size: 10px;
       letter-spacing: 2px;
@@ -482,7 +482,7 @@
       margin-bottom: 12px;
       display: block;
     }
- 
+
     .teaser-text {
       font-size: 13px;
       font-weight: 300;
@@ -492,7 +492,7 @@
       user-select: none;
       pointer-events: none;
     }
- 
+
     .teaser-veil {
       position: absolute;
       inset: 0;
@@ -502,7 +502,7 @@
       justify-content: center;
       padding-bottom: 16px;
     }
- 
+
     .teaser-lock {
       font-size: 10px;
       letter-spacing: 1.5px;
@@ -513,7 +513,7 @@
       padding: 6px 14px;
       font-weight: 500;
     }
- 
+
     /* 구분선 */
     .gold-rule {
       width: 32px;
@@ -522,7 +522,7 @@
       margin: 0 auto 44px;
       opacity: .6;
     }
- 
+
     /* CTA 블록 — 감성 유지하며 설득 */
     .cta-wrap {
       background: var(--dark);
@@ -532,7 +532,7 @@
       overflow: hidden;
       text-align: center;
     }
- 
+
     .cta-wrap::before {
       content: '';
       position: absolute;
@@ -542,7 +542,7 @@
       bottom: -120px; right: -80px;
       pointer-events: none;
     }
- 
+
     .cta-badge {
       display: inline-block;
       font-size: 10px;
@@ -552,7 +552,7 @@
       margin-bottom: 18px;
       opacity: .85;
     }
- 
+
     .cta-headline {
       font-family: var(--serif);
       font-size: clamp(22px, 5vw, 30px);
@@ -563,12 +563,12 @@
       position: relative;
       z-index: 1;
     }
- 
+
     .cta-headline em {
       font-style: italic;
       color: var(--gold-lt);
     }
- 
+
     .cta-sub {
       font-size: 14px;
       font-weight: 300;
@@ -578,7 +578,7 @@
       position: relative;
       z-index: 1;
     }
- 
+
     /* 혜택 — 최소화, 감성 우선 */
     .cta-benefits {
       display: flex;
@@ -589,7 +589,7 @@
       position: relative;
       z-index: 1;
     }
- 
+
     .cta-benefit {
       display: flex;
       align-items: flex-start;
@@ -599,14 +599,14 @@
       color: rgba(255,255,255,0.65);
       line-height: 1.7;
     }
- 
+
     .cta-benefit-dot {
       color: var(--gold);
       flex-shrink: 0;
       margin-top: 4px;
       font-size: 7px;
     }
- 
+
     /* 이메일 폼 */
     .lead-form {
       display: grid;
@@ -614,7 +614,7 @@
       position: relative;
       z-index: 1;
     }
- 
+
     .lead-input {
       width: 100%;
       background: rgba(255,255,255,0.95);
@@ -627,14 +627,14 @@
       outline: none;
       transition: border-color .2s, box-shadow .2s;
     }
- 
+
     .lead-input::placeholder { color: #b0a090; }
- 
+
     .lead-input:focus {
       border-color: var(--gold);
       box-shadow: 0 0 0 3px rgba(200,151,58,0.12);
     }
- 
+
     .cta-btn {
       width: 100%;
       background: var(--gold);
@@ -650,28 +650,28 @@
       transition: background .2s, transform .15s, box-shadow .2s;
       box-shadow: 0 6px 24px rgba(200,151,58,0.25);
     }
- 
+
     .cta-btn:hover {
       background: var(--gold-lt);
       transform: translateY(-1px);
       box-shadow: 0 10px 28px rgba(200,151,58,0.32);
     }
- 
+
     .cta-btn:disabled {
       opacity: .6;
       cursor: not-allowed;
       transform: none;
     }
- 
+
     .form-msg {
       min-height: 18px;
       font-size: 12px;
       line-height: 1.6;
     }
- 
+
     .form-msg.error   { color: #ffbdba; }
     .form-msg.success { color: #f0d898; }
- 
+
     .cta-footnote {
       margin-top: 10px;
       font-size: 11px;
@@ -679,7 +679,7 @@
       position: relative;
       z-index: 1;
     }
- 
+
     /* 성공 패널 */
     .success-panel {
       margin-top: 18px;
@@ -691,26 +691,26 @@
       position: relative;
       z-index: 1;
     }
- 
+
     .success-title {
       font-family: var(--serif);
       font-size: 16px;
       color: var(--gold-lt);
       margin-bottom: 8px;
     }
- 
+
     .success-text {
       font-size: 13px;
       color: rgba(255,255,255,0.5);
       line-height: 1.75;
     }
- 
+
     /* 재시작 */
     .restart-row {
       text-align: center;
       margin-top: 28px;
     }
- 
+
     .btn-restart {
       background: none;
       border: none;
@@ -722,7 +722,7 @@
       text-underline-offset: 3px;
       opacity: .7;
     }
- 
+
     /* ────────────────────────────
        RESPONSIVE
     ──────────────────────────── */
@@ -736,35 +736,35 @@
   </style>
 </head>
 <body>
- 
+
   <!-- ① 랜딩 -->
   <div id="landingCard">
     <div class="brand">Stay For</div>
- 
+
     <div class="landing-copy">
       <h1 class="landing-headline">
         오늘 하루,<br>
         잠시 쉬어가도<br>
         <em>될까요.</em>
       </h1>
- 
+
       <p class="landing-sub">
         괜찮다는 걸 알면서도<br>
         쉬는 게 어색한 날이 있습니다.<br><br>
         지금 내 상태가 어떤지 먼저 확인하면,<br>
         <strong>오늘 어떻게 쉬면 되는지</strong>가 조금 더 선명해집니다.
       </p>
- 
+
       <button class="btn-landing" type="button" onclick="startQuiz()">
         지금 확인해보기 &nbsp;→
       </button>
- 
+
       <div class="landing-hint">약 1분 · 무료 · 광고성 메일 없음</div>
     </div>
- 
+
     <div class="deco-line"></div>
   </div>
- 
+
   <!-- ② 퀴즈 -->
   <div id="quizCard" class="hidden">
     <div class="quiz-inner">
@@ -772,24 +772,24 @@
         <div class="quiz-brand">Stay For</div>
         <div class="quiz-num" id="stepCount">1 / 5</div>
       </div>
- 
+
       <div class="quiz-track">
         <div class="quiz-fill" id="progressFill" style="width:20%"></div>
       </div>
- 
+
       <div class="q-text" id="questionText"></div>
       <div class="opts" id="optionsWrap"></div>
- 
+
       <div class="quiz-nav">
         <button class="btn-prev" type="button" onclick="prevQ()">← 이전</button>
         <button class="btn-next" type="button" onclick="nextQ()">다음 →</button>
       </div>
     </div>
   </div>
- 
+
   <!-- ③ 결과 -->
   <div id="resultCard" class="hidden">
- 
+
     <div class="res-full">
       <div class="res-brand">Stay For · Result</div>
       <div class="res-icon" id="resIcon">☕</div>
@@ -797,15 +797,15 @@
       <div class="res-drink" id="resDrinkName"></div>
       <div class="res-tagline" id="resTagline"></div>
     </div>
- 
+
     <div class="res-body">
       <div class="res-body-inner">
- 
+
         <div class="summary-block">
           <div class="summary-label">지금 상태 요약</div>
           <div class="summary-text" id="miniSummary"></div>
         </div>
- 
+
         <div class="teaser-wrap">
           <div class="teaser-item">
             <span class="teaser-label">왜 이 음료인가요?</span>
@@ -822,9 +822,9 @@
             </div>
           </div>
         </div>
- 
+
         <div class="gold-rule"></div>
- 
+
         <div class="cta-wrap">
           <div class="cta-badge">Full Result</div>
           <h2 class="cta-headline">
@@ -832,12 +832,12 @@
             <em>오늘 어떻게 쉬면 되는지</em><br>
             메일로 받아보세요.
           </h2>
- 
+
           <p class="cta-sub">
             추천 이유와 오늘 카페에서 바로 써볼 수 있는 루틴,<br>
             지금 피하면 좋은 행동까지 함께 보내드립니다.
           </p>
- 
+
           <div class="cta-benefits">
             <div class="cta-benefit">
               <span class="cta-benefit-dot">◆</span>
@@ -852,7 +852,7 @@
               <span>지금 상태에서 피하면 좋은 행동 1가지</span>
             </div>
           </div>
- 
+
           <form class="lead-form" id="leadForm" novalidate>
             <input
               type="email"
@@ -867,7 +867,7 @@
             </button>
             <div id="formMessage" class="form-msg"></div>
           </form>
- 
+
           <div id="successPanel" class="success-panel hidden">
             <div class="success-title">잘 도착했습니다</div>
             <div class="success-text">
@@ -875,21 +875,21 @@
               없으면 스팸함도 한번 살펴봐 주세요.
             </div>
           </div>
- 
+
           <div class="cta-footnote">결과 안내 메일 1회만 발송됩니다 · 광고성 메일 없음</div>
         </div>
- 
+
         <div class="restart-row">
           <button class="btn-restart" type="button" onclick="restartQuiz()">처음부터 다시 하기</button>
         </div>
- 
+
       </div>
     </div>
   </div>
- 
+
 <script>
   const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxNP-1OpgGTkQhPw9r2YDUqliSlj6c3zNwud-uB2UBbwK2pd8tWsWRMM0PBKw-UT0mWxw/exec';
- 
+
   const questions = [
     {
       text: '카페에 도착했을 때 가장 먼저 하는 행동은?',
@@ -932,7 +932,7 @@
       ]
     }
   ];
- 
+
   const results = {
     overload: {
       key: 'overload',
@@ -979,21 +979,21 @@
       teaserRoutine: '음료를 받으면 첫 몇 분은 계획을 세우기보다 향과 온도를 인식하면서 내 호흡을 다시 정리하는 데 집중해보세요.'
     }
   };
- 
+
   let current = 0;
   const answers = new Array(questions.length).fill(null);
   let finalResult = null;
- 
+
   const leadForm       = document.getElementById('leadForm');
   const emailInput     = document.getElementById('emailInput');
   const formMessage    = document.getElementById('formMessage');
   const submitLeadBtn  = document.getElementById('submitLeadBtn');
   const successPanel   = document.getElementById('successPanel');
- 
+
   function trackEvent(name, params = {}) {
     if (typeof gtag === 'function') gtag('event', name, params);
   }
- 
+
   function getUtmParams() {
     const p = new URL(window.location.href).searchParams;
     return {
@@ -1004,12 +1004,12 @@
       utm_term:     p.get('utm_term')     || ''
     };
   }
- 
+
   function setMsg(msg, type = '') {
     formMessage.textContent = msg;
     formMessage.className   = 'form-msg' + (type ? ' ' + type : '');
   }
- 
+
   function startQuiz() {
     document.getElementById('landingCard').classList.add('hidden');
     document.getElementById('quizCard').classList.remove('hidden');
@@ -1017,32 +1017,32 @@
     trackEvent('start_quiz', { entry_point: 'hero_cta' });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
- 
+
   function renderQuestion() {
     const q   = questions[current];
     const pct = ((current + 1) / questions.length) * 100;
- 
+
     document.getElementById('questionText').textContent = q.text;
     document.getElementById('stepCount').textContent    = `${current + 1} / ${questions.length}`;
     document.getElementById('progressFill').style.width = pct + '%';
- 
+
     const wrap = document.getElementById('optionsWrap');
     wrap.innerHTML = '';
- 
+
     q.options.forEach((opt, idx) => {
       const btn    = document.createElement('button');
       btn.className = 'opt' + (answers[current] === idx ? ' selected' : '');
       btn.type     = 'button';
- 
+
       const dot  = document.createElement('span');
       dot.className = 'opt-dot';
- 
+
       const txt  = document.createElement('span');
       txt.textContent = opt.text;
- 
+
       btn.appendChild(dot);
       btn.appendChild(txt);
- 
+
       btn.onclick = () => {
         answers[current] = idx;
         trackEvent('select_answer', { q: current + 1, answer: opt.text });
@@ -1051,7 +1051,7 @@
       wrap.appendChild(btn);
     });
   }
- 
+
   function nextQ() {
     if (answers[current] === null) { alert('하나를 선택해주세요.'); return; }
     trackEvent('click_next', { current_question: current + 1 });
@@ -1059,12 +1059,12 @@
     else showResult();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
- 
+
   function prevQ() {
     if (current > 0) { current--; renderQuestion(); }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
- 
+
   function showResult() {
     const score = { overload: 0, selfconscious: 0, drained: 0, recovery: 0 };
     questions.forEach((q, qi) => {
@@ -1072,10 +1072,10 @@
     });
     const topKey = Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
     finalResult  = results[topKey];
- 
+
     document.getElementById('quizCard').classList.add('hidden');
     document.getElementById('resultCard').classList.remove('hidden');
- 
+
     document.getElementById('resIcon').textContent     = finalResult.icon;
     document.getElementById('resTypeName').textContent = finalResult.typeName;
     document.getElementById('resDrinkName').textContent= finalResult.drinkName;
@@ -1083,23 +1083,23 @@
     document.getElementById('miniSummary').textContent = finalResult.miniSummary;
     document.getElementById('teaserReason').textContent= finalResult.teaserReason;
     document.getElementById('teaserRoutine').textContent= finalResult.teaserRoutine;
- 
+
     trackEvent('view_result', { result_type: finalResult.label });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
- 
+
   async function submitLead(e) {
     e.preventDefault();
     if (!finalResult) { alert('결과를 먼저 확인해주세요.'); return; }
- 
+
     const email = emailInput.value.trim();
- 
+
     trackEvent('click_result_cta', {
       result_type: finalResult.label,
       cta_text: '상세 결과 받아보기',
       destination: 'onsite_email_form'
     });
- 
+
     if (!email) { setMsg('이메일 주소를 입력해주세요.', 'error'); emailInput.focus(); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setMsg('이메일 형식을 다시 확인해주세요.', 'error'); emailInput.focus(); return;
@@ -1107,11 +1107,11 @@
     if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
       setMsg('Apps Script 웹앱 URL을 먼저 입력해주세요.', 'error'); return;
     }
- 
+
     submitLeadBtn.disabled     = true;
     submitLeadBtn.textContent  = '전송 중...';
     setMsg('');
- 
+
     const payload = {
       email,
       result_key:   finalResult.key,
@@ -1122,7 +1122,7 @@
       submitted_at: new Date().toISOString(),
       ...getUtmParams()
     };
- 
+
     try {
       const res     = await fetch(GAS_WEB_APP_URL, {
         method: 'POST',
@@ -1131,19 +1131,19 @@
       });
       const data    = JSON.parse(await res.text());
       if (!res.ok || data.status !== 'success') throw new Error(data.message || '저장 실패');
- 
+
       trackEvent('generate_lead', {
         lead_type:      'email',
         result_type:    finalResult.label,
         drink_name:     finalResult.drinkName,
         email_submitted: true
       });
- 
+
       setMsg('신청이 완료되었습니다.', 'success');
       successPanel.classList.remove('hidden');
       leadForm.classList.add('hidden');
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
- 
+
     } catch (err) {
       console.error(err);
       setMsg('전송 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.', 'error');
@@ -1151,7 +1151,7 @@
       submitLeadBtn.textContent = '상세 결과 받아보기 →';
     }
   }
- 
+
   function restartQuiz() {
     current = 0; finalResult = null;
     for (let i = 0; i < answers.length; i++) answers[i] = null;
@@ -1166,7 +1166,7 @@
     trackEvent('restart_quiz');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
- 
+
   leadForm.addEventListener('submit', submitLead);
 </script>
 </body>
